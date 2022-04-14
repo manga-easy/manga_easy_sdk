@@ -4,5 +4,6 @@
 library sdk_manga_easy;
 
 export 'src/sdk_manga_easy_base.dart';
+export 'src/helpes.dart';
 
 // TODO: Export any libraries intended for clients of this package.

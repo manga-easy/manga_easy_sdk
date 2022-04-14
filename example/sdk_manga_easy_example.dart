@@ -1,4 +1,4 @@
-import 'package:sdk_manga_easy/sdk_manga_easy.dart';
+import '../lib/sdk_manga_easy.dart';
 
 void main() {
   var awesome = Awesome();
