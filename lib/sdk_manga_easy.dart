@@ -20,4 +20,5 @@ export 'src/models/historico.dart';
 export 'src/models/imageChapters.dart';
 export 'src/models/notificacao_capitulos.dart';
 export 'src/models/user.dart';
+export 'src/models/notificacao.dart';
 // TODO: Export any libraries intended for clients of this package.
