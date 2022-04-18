@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:logger/logger.dart';
+
 class Helps {
   static Future<bool> verificarConexao() async {
     try {
@@ -66,5 +68,14 @@ class Helps {
 
   static String capitalize(String string) {
     return "${string[0].toUpperCase()}${string.substring(1).toLowerCase()}";
+  }
+
+  static void log(e) {
+    var logger = Logger();
+    try {
+      logger.e(e, null);
+    } catch (e) {
+      logger.w(e, null);
+    }
   }
 }
