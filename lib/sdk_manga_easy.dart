@@ -19,4 +19,5 @@ export 'src/models/generos_model.dart';
 export 'src/models/historico.dart';
 export 'src/models/imageChapters.dart';
 export 'src/models/notificacao_capitulos.dart';
+export 'src/models/user.dart';
 // TODO: Export any libraries intended for clients of this package.
