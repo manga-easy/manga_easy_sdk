@@ -1,12 +1,12 @@
 class RecomendacoesModel {
   static const String collectionID = '6240a8375d93f7a0194c';
-  String id;
+  String? id;
   String uniqueid;
   String title;
   String link;
 
   RecomendacoesModel({
-    required this.id,
+    this.id,
     required this.title,
     required this.link,
     required this.uniqueid,
