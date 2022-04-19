@@ -73,7 +73,7 @@ class Helps {
   static void log(e) {
     var logger = Logger();
     try {
-      logger.e(e, null);
+      logger.e(e, null, e.stackTrace);
     } catch (e) {
       logger.w(e, null);
     }
