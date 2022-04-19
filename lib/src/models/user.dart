@@ -1,4 +1,5 @@
 class User {
+  static const String collectionIdAdmin = '';
   String? id;
   String name;
   int registration;
