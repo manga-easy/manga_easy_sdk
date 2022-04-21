@@ -3,7 +3,7 @@ class NotificacaoCapitulos {
   String? id;
   String uniqueid;
   String message;
-  String idHost;
+  int idHost;
   List<String> capitulos;
   String nomeManga;
   NotificacaoCapitulos({
