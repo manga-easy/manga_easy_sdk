@@ -20,7 +20,7 @@ class NotificacaoCapitulos {
     data['\$id'] = id;
     data['uniqueid'] = uniqueid;
     data['idHost'] = idHost;
-    data['menssege'] = message;
+    data['message'] = message;
     data['nomeManga'] = nomeManga;
     data['capitulos'] = capitulos;
     return data;
