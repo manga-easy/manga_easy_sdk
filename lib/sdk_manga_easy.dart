@@ -20,4 +20,5 @@ export 'src/models/image_chapters.dart';
 export 'src/models/notificacao_capitulos.dart';
 export 'src/models/user.dart';
 export 'src/models/notificacao.dart';
+export 'src/interfaces/model_interface.dart';
 // TODO: Export any libraries intended for clients of this package.
