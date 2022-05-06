@@ -44,18 +44,18 @@ class DetalhesManga {
             : [];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = this.id;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['status'] = status;
     data['scans'] = scans;
     data['ano'] = ano;
-    data['title'] = this.title;
-    data['capa'] = this.capa;
-    data['sinopse'] = this.sinopse;
-    data['generos'] = this.generos.map((v) => v.toJson()).toList();
-    data['autor'] = this.autor;
-    data['artista'] = this.artista;
-    data['capitulos'] = this.capitulos.map((v) => v.toJson()).toList();
+    data['title'] = title;
+    data['capa'] = capa;
+    data['sinopse'] = sinopse;
+    data['generos'] = generos.map((v) => v.toJson()).toList();
+    data['autor'] = autor;
+    data['artista'] = artista;
+    data['capitulos'] = capitulos.map((v) => v.toJson()).toList();
     return data;
   }
 }

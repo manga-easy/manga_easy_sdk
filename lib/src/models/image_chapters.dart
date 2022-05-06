@@ -14,9 +14,9 @@ class ImageChapter {
         src = json['src'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = this.id;
-    data['src'] = this.src;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['src'] = src;
     data['path'] = path;
     return data;
   }

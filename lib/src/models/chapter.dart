@@ -25,12 +25,12 @@ class Chapter {
         href = json['href'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['date'] = date;
     data['title'] = title;
     data['href'] = href;
-    data['imagens'] = this.imagens.map((v) => v.toJson()).toList();
+    data['imagens'] = imagens.map((v) => v.toJson()).toList();
     return data;
   }
 }

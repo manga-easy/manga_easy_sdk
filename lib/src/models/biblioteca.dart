@@ -43,15 +43,15 @@ class Biblioteca {
         dataCria = json['dataCria'] is DateTime ? json['dataCria'] : DateTime.parse(json['dataCria']);
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['\$id'] = this.id;
-    data['idHost'] = this.idHost;
-    data['idManga'] = this.idManga;
-    data['idUser'] = this.idUser;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['\$id'] = id;
+    data['idHost'] = idHost;
+    data['idManga'] = idManga;
+    data['idUser'] = idUser;
     data['uniqueid'] = uniqueid;
-    data['dataUpdade'] = this.dataUpdade;
-    data['deletado'] = this.deletado;
-    data['dataCria'] = this.dataCria.toString();
+    data['dataUpdade'] = dataUpdade;
+    data['deletado'] = deletado;
+    data['dataCria'] = dataCria.toString();
     data['status'] = status;
     data['manga'] = manga != null ? j.json.encode(manga) : null;
 

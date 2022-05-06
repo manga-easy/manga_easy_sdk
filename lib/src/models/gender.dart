@@ -13,9 +13,9 @@ class Gender {
         href = json['href'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['title'] = this.title;
-    data['href'] = this.href;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['href'] = href;
 
     return data;
   }

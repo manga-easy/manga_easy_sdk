@@ -17,11 +17,11 @@ class Manga {
         capa = json['capa'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['\$id'] = this.id;
-    data['title'] = this.title;
-    data['href'] = this.href;
-    data['capa'] = this.capa;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['\$id'] = id;
+    data['title'] = title;
+    data['href'] = href;
+    data['capa'] = capa;
     return data;
   }
 }

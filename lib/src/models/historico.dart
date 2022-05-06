@@ -44,7 +44,7 @@ class Historico {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['\$id'] = this.id;
+    data['\$id'] = id;
     data['idManga'] = idManga;
     data['dataUp'] = dataUp;
     data['deletado'] = deletado;

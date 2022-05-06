@@ -1,5 +1,3 @@
-import 'dart:math';
-
 class NivelUser {
   static String get collectionId => '61b1215aa06cb';
   String? id;
@@ -39,7 +37,7 @@ class NivelUser {
         minute = json['minute'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['\$id'] = id;
     data['lvl'] = lvl;
     data['timeCria'] = timeCria;

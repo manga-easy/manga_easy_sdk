@@ -1,6 +1,6 @@
 enum TypeEmblema { asset, svg, link }
 enum CategoriaEmblema { evento, doacao, rank }
-enum RarityEmblema { Comum, Incomum, Raro }
+enum RarityEmblema { comum, incomum, raro }
 
 class Emblema {
   static String get collectionId => '61b11b625f4b7';
@@ -47,7 +47,7 @@ class Emblema {
         benefits = json['benefits'].map<String>((e) => e.toString()).toList();
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['\$id'] = id;
     data['name'] = name;
     data['time_cria'] = timeCria;
