@@ -6,6 +6,7 @@ class NotificacaoCapitulos {
   int idHost;
   List<String> capitulos;
   String nomeManga;
+  int datetime;
   NotificacaoCapitulos({
     this.id,
     required this.message,
@@ -13,6 +14,7 @@ class NotificacaoCapitulos {
     required this.idHost,
     required this.capitulos,
     required this.nomeManga,
+    required this.datetime,
   });
 
   Map<String, dynamic> toJson() {
@@ -23,6 +25,7 @@ class NotificacaoCapitulos {
     data['message'] = message;
     data['nomeManga'] = nomeManga;
     data['capitulos'] = capitulos;
+    data['datetime'] = datetime;
     return data;
   }
 }
