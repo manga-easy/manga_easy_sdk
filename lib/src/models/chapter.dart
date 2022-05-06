@@ -1,4 +1,4 @@
-import 'imageChapters.dart';
+import 'image_chapters.dart';
 
 class Chapter {
   String? id;
