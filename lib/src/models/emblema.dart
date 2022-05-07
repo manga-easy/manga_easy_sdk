@@ -4,7 +4,7 @@ enum RarityEmblema { comum, incomum, raro }
 
 class Emblema {
   static String get collectionId => '61b11b625f4b7';
-  String id;
+  String? id;
   String name;
   int timeCria;
   String rarity;
@@ -18,7 +18,7 @@ class Emblema {
   String type;
 
   Emblema({
-    required this.id,
+    this.id,
     required this.name,
     required this.timeCria,
     required this.rarity,
