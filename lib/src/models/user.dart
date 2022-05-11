@@ -27,7 +27,7 @@ class User {
         status = json['status'] is bool ? json['status'] : true,
         passwordUpdate = json['passwordUpdate'],
         email = json['email'],
-        prefs = Prefs.fromJson(json['prefs']),
+        prefs = Prefs.fromJson(json['prefs']['data']),
         emailVerification = json['emailVerification'];
 
   Map<String, dynamic> toJson() {
