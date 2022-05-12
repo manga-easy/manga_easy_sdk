@@ -1,13 +1,26 @@
 enum TypeEmblema { asset, svg, link }
+
 enum CategoriaEmblema { evento, doacao, rank }
-enum RarityEmblema { comum, incomum, raro }
+
+enum RarityEmblema {
+  comum(label: 'Comun', horn: 'assets/emblemas/Chifre_cinza.webp'),
+  incomum(label: 'Incomum', horn: 'assets/emblemas/Chifre_verde.webp'),
+  raro(label: 'Raro', horn: 'assets/emblemas/Chifre_Azul.webp'),
+  mitico(label: 'Mítico', horn: 'assets/emblemas/Chifre_Roxa.webp'),
+  lendario(label: 'Lendário', horn: 'assets/emblemas/Chifre_dourado.webp'),
+  unico(label: 'Único', horn: 'assets/emblemas/Chifre_Vermelho.webp');
+
+  final String label;
+  final String horn;
+  const RarityEmblema({required this.label, required this.horn});
+}
 
 class Emblema {
   static String get collectionId => '61b11b625f4b7';
   String? id;
   String name;
   int timeCria;
-  String rarity;
+  RarityEmblema rarity;
   String description;
   double percent;
   String url;
@@ -36,7 +49,7 @@ class Emblema {
       : id = json['\$id'],
         name = json['name'],
         timeCria = json['time_cria'],
-        rarity = json['rarity'],
+        rarity = validaRarity(json['rarity']),
         description = json['description'],
         percent = json['percent'],
         url = json['url'],
@@ -51,7 +64,7 @@ class Emblema {
     data['\$id'] = id;
     data['name'] = name;
     data['time_cria'] = timeCria;
-    data['rarity'] = rarity;
+    data['rarity'] = rarity.toString();
     data['description'] = description;
     data['percent'] = percent;
     data['url'] = url;
@@ -63,22 +76,26 @@ class Emblema {
     return data;
   }
 
-  String retornaChifre() {
-    switch (rarity) {
-      case 'Comum':
-        return 'assets/emblemas/Chifre_cinza.webp';
-      case 'Incomum':
-        return 'assets/emblemas/Chifre_verde.webp';
-      case 'Raro':
-        return 'assets/emblemas/Chifre_Azul.webp';
-      case 'Mítico':
-        return 'assets/emblemas/Chifre_Roxa.webp';
-      case 'Lendário':
-        return 'assets/emblemas/Chifre_dourado.webp';
-      case 'Único':
-        return 'assets/emblemas/Chifre_Vermelho.webp';
+  static RarityEmblema validaRarity(String rarity) {
+    var index = RarityEmblema.values.indexWhere((element) => element.toString() == rarity);
+    if (index == -1) {
+      index = RarityEmblema.values.indexWhere((element) => element.label == rarity);
+    }
+    switch (RarityEmblema.values[index]) {
+      case RarityEmblema.comum:
+        return RarityEmblema.comum;
+      case RarityEmblema.incomum:
+        return RarityEmblema.incomum;
+      case RarityEmblema.lendario:
+        return RarityEmblema.lendario;
+      case RarityEmblema.mitico:
+        return RarityEmblema.mitico;
+      case RarityEmblema.raro:
+        return RarityEmblema.raro;
+      case RarityEmblema.unico:
+        return RarityEmblema.unico;
       default:
-        return '';
+        return RarityEmblema.comum;
     }
   }
 }
