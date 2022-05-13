@@ -77,7 +77,7 @@ class Emblema {
   }
 
   static RarityEmblema validaRarity(String rarity) {
-    var index = RarityEmblema.values.indexWhere((element) => element.toString() == rarity);
+    var index = RarityEmblema.values.indexWhere((element) => element.name == rarity);
     if (index == -1) {
       index = RarityEmblema.values.indexWhere((element) => element.label == rarity);
     }
