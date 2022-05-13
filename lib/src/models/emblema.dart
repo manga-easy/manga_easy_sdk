@@ -64,7 +64,7 @@ class Emblema {
     data['\$id'] = id;
     data['name'] = name;
     data['time_cria'] = timeCria;
-    data['rarity'] = rarity.toString();
+    data['rarity'] = rarity.name;
     data['description'] = description;
     data['percent'] = percent;
     data['url'] = url;
