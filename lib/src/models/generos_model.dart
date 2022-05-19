@@ -47,8 +47,8 @@ class GenerosModel {
     return aura;
   }
 
-  static final dc = 'https://media.discordapp.net/attachments/912814023555301427/';
-  static var generos = [
+  static const dc = 'https://media.discordapp.net/attachments/912814023555301427/';
+  static const generos = [
     {
       "imagem": "$dc/950093396637266090/PicsArt_12-22-02.30.29.webp?width=663&height=663",
       "titulo": "Ação",
