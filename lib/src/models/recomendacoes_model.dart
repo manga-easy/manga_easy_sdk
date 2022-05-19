@@ -4,18 +4,21 @@ class RecomendacoesModel {
   String uniqueid;
   String title;
   String link;
+  int dataCria;
 
   RecomendacoesModel({
     this.id,
     required this.title,
     required this.link,
     required this.uniqueid,
+    required this.dataCria,
   });
 
   RecomendacoesModel.fromJson(Map<String, dynamic> json)
       : id = json['\$id'],
         title = json['title'],
         uniqueid = json['uniqueid'],
+        dataCria = json['dataCria'] ?? DateTime.now().millisecondsSinceEpoch,
         link = json['link'];
 
   Map<String, dynamic> toJson() {
@@ -24,6 +27,7 @@ class RecomendacoesModel {
     data['title'] = title;
     data['uniqueid'] = uniqueid;
     data['link'] = link;
+    data['dataCria'] = dataCria;
     return data;
   }
 }
