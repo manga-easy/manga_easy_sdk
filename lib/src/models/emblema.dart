@@ -10,9 +10,10 @@ enum RarityEmblema {
   lendario(label: 'Lendário', horn: 'assets/emblemas/Chifre_dourado.webp'),
   unico(label: 'Único', horn: 'assets/emblemas/Chifre_Vermelho.webp');
 
+  const RarityEmblema({required this.label, required this.horn});
+
   final String label;
   final String horn;
-  const RarityEmblema({required this.label, required this.horn});
 }
 
 class Emblema {
@@ -81,21 +82,6 @@ class Emblema {
     if (index == -1) {
       index = RarityEmblema.values.indexWhere((element) => element.label == rarity);
     }
-    switch (RarityEmblema.values[index]) {
-      case RarityEmblema.comum:
-        return RarityEmblema.comum;
-      case RarityEmblema.incomum:
-        return RarityEmblema.incomum;
-      case RarityEmblema.lendario:
-        return RarityEmblema.lendario;
-      case RarityEmblema.mitico:
-        return RarityEmblema.mitico;
-      case RarityEmblema.raro:
-        return RarityEmblema.raro;
-      case RarityEmblema.unico:
-        return RarityEmblema.unico;
-      default:
-        return RarityEmblema.comum;
-    }
+    return RarityEmblema.values[index];
   }
 }
