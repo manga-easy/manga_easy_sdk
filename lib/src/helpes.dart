@@ -19,16 +19,9 @@ class Helps {
   static String ajustaPath(String url) {
     if (url.contains('/')) url = url.replaceFirst('/', '');
     if (url.contains('/')) url = url.replaceAll('/', ' > ');
-    if (url.contains('[1]')) url = url.replaceAll('[1]', '');
-    if (url.contains('[2]')) url = url.replaceAll('[2]', '');
-    if (url.contains('[3]')) url = url.replaceAll('[3]', '');
-    if (url.contains('[4]')) url = url.replaceAll('[4]', '');
-    if (url.contains('[5]')) url = url.replaceAll('[5]', '');
-    if (url.contains('[6]')) url = url.replaceAll('[6]', '');
-    if (url.contains('[7]')) url = url.replaceAll('[7]', '');
-    if (url.contains('[8]')) url = url.replaceAll('[8]', '');
-    if (url.contains('[9]')) url = url.replaceAll('[9]', '');
-    if (url.contains('[10]')) url = url.replaceAll('[10]', '');
+    for (var i = 0; i < 30; i++) {
+      if (url.contains('[$i]')) url = url.replaceAll('[$i]', '');
+    }
 
     return url;
   }
