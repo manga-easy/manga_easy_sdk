@@ -10,4 +10,17 @@ class ViewsComics {
     required this.idUser,
     required this.dateCria,
   });
+
+  ViewsComics.fromJson(Map<String, dynamic> json)
+      : idUser = json['idUser'],
+        uniqueid = json['uniqueid'],
+        dateCria = json['dateCria'];
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    data['idUser'] = idUser;
+    data['uniqueid'] = uniqueid;
+    data['dateCria'] = dateCria;
+    return data;
+  }
 }
