@@ -3,7 +3,7 @@ class ViewsComics {
 
   final String uniqueid;
   final String idUser;
-  final int dateCria;
+  final String dateCria;
 
   ViewsComics({
     required this.uniqueid,
