@@ -1,12 +1,12 @@
 class BannerModel {
   static const String collectionID = '61c64c7fd5d94';
-  final String id;
+  final String? id;
   final String type;
   final String image;
   final String link;
 
   BannerModel({
-    required this.id,
+    this.id,
     required this.image,
     required this.link,
     required this.type,
