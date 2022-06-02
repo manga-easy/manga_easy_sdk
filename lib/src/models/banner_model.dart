@@ -1,14 +1,15 @@
 class BannerModel {
   static const String collectionID = '61c64c7fd5d94';
-  String id;
-  String title;
-  String subtitle;
-  String btnText;
-  String actionBtnBgColor;
-  String image;
-  String link;
-  String gradientColors1;
-  String gradientColors2;
+  final String id;
+  final String title;
+  final String subtitle;
+  final String btnText;
+  final String actionBtnBgColor;
+  final String image;
+  final String link; // link do botão
+  final String gradientColors1;
+  final String gradientColors2;
+  final String bannerLinkImage;
 
   BannerModel({
     required this.id,
@@ -20,6 +21,7 @@ class BannerModel {
     required this.link,
     required this.gradientColors1,
     required this.gradientColors2,
+    required this.bannerLinkImage,
   });
 
   BannerModel.fromJson(Map<String, dynamic> json)
@@ -31,6 +33,7 @@ class BannerModel {
         image = json['image'],
         link = json['link'],
         gradientColors1 = json['gradientColors1'],
+        bannerLinkImage = json['bannerLinkImage'],
         gradientColors2 = json['gradientColors2'];
 
   Map<String, dynamic> toJson() {
@@ -43,6 +46,7 @@ class BannerModel {
     data['image'] = image;
     data['link'] = link;
     data['gradientColors1'] = gradientColors1;
+    data['bannerLinkImage'] = bannerLinkImage;
     data['gradientColors2'] = gradientColors2;
     return data;
   }
