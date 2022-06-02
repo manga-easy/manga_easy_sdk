@@ -37,7 +37,7 @@ class InfoComicModel {
         autor = json['autor'],
         thumb = json['thumb'],
         sinopse = json['sinopse'],
-        ratio = double.parse(json['ratio']),
+        ratio = json['ratio'] * 0.0,
         scans = json['scans'],
         dateUp = json['dateUp'],
         dateMade = json['dateMade'],
