@@ -13,6 +13,7 @@ class DetalhesManga {
   String ano;
   String scans;
   String status;
+  int idHost;
 
   DetalhesManga({
     required this.title,
@@ -25,10 +26,12 @@ class DetalhesManga {
     required this.ano,
     required this.scans,
     required this.status,
+    required this.idHost,
   });
 
   DetalhesManga.fromJson(dynamic json)
       : id = json['id'],
+        idHost = json['idHost'] ?? 0,
         ano = json['ano'] ?? '',
         scans = json['scans'] ?? '',
         status = json['status'] ?? '',
@@ -51,6 +54,7 @@ class DetalhesManga {
     data['ano'] = ano;
     data['title'] = title;
     data['capa'] = capa;
+    data['idHost'] = idHost;
     data['sinopse'] = sinopse;
     data['generos'] = generos.map((v) => v.toJson()).toList();
     data['autor'] = autor;
