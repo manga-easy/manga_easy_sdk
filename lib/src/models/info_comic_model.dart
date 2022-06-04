@@ -1,18 +1,18 @@
 class InfoComicModel {
   static String get collectionId => '62408a74a3081ee2886a';
 
-  final String name;
-  final String uniqueid;
-  final String ultimoCap;
-  final int totalViews;
-  final String autor;
-  final String thumb;
-  final String sinopse;
-  final double ratio;
-  final String scans;
-  final int dateUp;
-  final int dateMade;
-  final String generos;
+  String name;
+  String uniqueid;
+  String ultimoCap;
+  int totalViews;
+  String autor;
+  String thumb;
+  String sinopse;
+  double ratio;
+  String scans;
+  int dateUp;
+  int dateMade;
+  String generos;
 
   InfoComicModel({
     required this.name,
