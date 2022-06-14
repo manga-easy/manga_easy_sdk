@@ -2,7 +2,6 @@ class NotificacaoCapitulos {
   static String get collectionId => '6240955e6c241a37e6b2';
   String? id;
   String uniqueid;
-  String message;
   int idHost;
   List<String> capitulos;
   String nomeManga;
@@ -11,7 +10,6 @@ class NotificacaoCapitulos {
 
   NotificacaoCapitulos({
     this.id,
-    required this.message,
     required this.uniqueid,
     required this.idHost,
     required this.capitulos,
@@ -25,7 +23,6 @@ class NotificacaoCapitulos {
     data['\$id'] = id;
     data['uniqueid'] = uniqueid;
     data['idHost'] = idHost;
-    data['message'] = message;
     data['nomeManga'] = nomeManga;
     data['capitulos'] = capitulos;
     data['datetime'] = datetime;
@@ -37,7 +34,6 @@ class NotificacaoCapitulos {
       : id = json['\$id'],
         uniqueid = json['uniqueid'],
         idHost = json['idHost'],
-        message = json['message'],
         nomeManga = json['nomeManga'],
         capitulos = json['capitulos'],
         datetime = json['datetime'],
