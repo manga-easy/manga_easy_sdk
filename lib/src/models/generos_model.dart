@@ -140,8 +140,7 @@ class GenerosModel {
       "codigo": "4koma"
     },
     {
-      "imagem":
-          "https://media.discordapp.net/attachments/912814023555301427/950095816444485642/PicsArt_01-14-07.40.13-1.webp?width=663&height=663",
+      "imagem": "950095816444485642/PicsArt_01-14-07.40.13-1.webp?width=663&height=663",
       "titulo": "Artes Marciais",
       "codigo": "artes-marciais"
     },
@@ -156,7 +155,7 @@ class GenerosModel {
       "codigo": "dementia"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/961001944623771698/Picsart_22-04-05_16-37-26-942.webp?width=671&height=671",
       "titulo": "Demônios",
       "codigo": "demonios"
     },
@@ -171,7 +170,7 @@ class GenerosModel {
       "codigo": "ecchi"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/963907876156502116/Picsart_22-04-13_16-40-37-169.webp?width=671&height=671",
       "titulo": "Espaço",
       "codigo": "espaco"
     },
@@ -181,12 +180,12 @@ class GenerosModel {
       "codigo": "esportes"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/961001944883789895/Picsart_22-04-05_16-37-07-490.webp?width=671&height=671",
       "titulo": "Gender Bender",
       "codigo": "gender-bender"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/963907876563353681/Picsart_22-04-13_17-00-53-632.webp?width=671&height=671",
       "titulo": "Jogo",
       "codigo": "jogo"
     },
@@ -196,12 +195,12 @@ class GenerosModel {
       "codigo": "josei"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/963907876856946748/Picsart_22-04-13_16-37-28-345.webp?width=671&height=671",
       "titulo": "Militar",
       "codigo": "militar"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/963920715160105010/Picsart_22-04-13_17-52-24-603-_1.webp?width=671&height=671",
       "titulo": "Nonsense",
       "codigo": "nonsense"
     },
@@ -211,7 +210,7 @@ class GenerosModel {
       "codigo": "parodia"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/968366282569293874/Picsart_22-04-25_20-20-17-420.webp?width=672&height=671",
       "titulo": "Policial",
       "codigo": "policial"
     },
@@ -226,7 +225,7 @@ class GenerosModel {
       "codigo": "romance"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/968366282913234984/Picsart_22-04-24_15-50-36-232.webp?width=671&height=671",
       "titulo": "Samurai",
       "codigo": "samurai"
     },
@@ -256,7 +255,7 @@ class GenerosModel {
       "codigo": "shounen-ai"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/968366282300862464/Picsart_22-04-25_23-12-15-283.webp?width=673&height=671",
       "titulo": "Vampiros",
       "codigo": "vampiros"
     },
@@ -271,7 +270,7 @@ class GenerosModel {
       "codigo": "yaoi"
     },
     {
-      "imagem": "$dc/957331386673528832/logo-branca-_transparente.png?width=544&height=544",
+      "imagem": "$dc/968366282019835905/Picsart_22-04-26_00-13-22-775.webp?width=671&height=671",
       "titulo": "Yuri",
       "codigo": "yuri"
     }
