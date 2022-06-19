@@ -35,7 +35,7 @@ class Biblioteca {
         idHost = json['idHost'],
         idManga = json['idManga'],
         uniqueid = Helps.convertUniqueid(json['idManga']),
-        idUser = json['idUser'],
+        idUser = json['idUser']?.toString() ?? '',
         dataUpdade = json['dataUpdade'] ?? DateTime.now().millisecondsSinceEpoch,
         deletado = json['deletado'] ?? false,
         status = validaStatus(json['status']),
