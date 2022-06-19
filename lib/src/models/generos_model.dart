@@ -140,7 +140,7 @@ class GenerosModel {
       "codigo": "4koma"
     },
     {
-      "imagem": "950095816444485642/PicsArt_01-14-07.40.13-1.webp?width=663&height=663",
+      "imagem": "$dc/950095816444485642/PicsArt_01-14-07.40.13-1.webp?width=663&height=663",
       "titulo": "Artes Marciais",
       "codigo": "artes-marciais"
     },
