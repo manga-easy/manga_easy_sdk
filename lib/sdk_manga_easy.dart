@@ -23,4 +23,5 @@ export 'src/models/notificacao.dart';
 export 'src/interfaces/model_interface.dart';
 export 'src/models/views_comic.dart';
 export 'src/models/info_comic_model.dart';
+export 'src/models/permissions_model.dart';
 // TODO: Export any libraries intended for clients of this package.
