@@ -1,5 +1,4 @@
 class User {
-  static const String collectionIdAdmin = '623f19fd634f690560fc';
   String? id;
   String name;
   int registration;
