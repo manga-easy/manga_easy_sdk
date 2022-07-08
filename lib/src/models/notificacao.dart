@@ -3,14 +3,17 @@ class Notificacao {
   String? id;
   String titulo;
   String menssege;
+  int dateMade;
   Notificacao({
     this.id,
     required this.menssege,
     required this.titulo,
+    required this.dateMade,
   });
   Notificacao.fromJson(Map<String, dynamic> json)
       : titulo = json['titulo'],
         menssege = json['menssege'],
+        dateMade = json['dateMade'] ?? DateTime.now().millisecondsSinceEpoch,
         id = json['\$id'];
 
   Map<String, dynamic> toJson() {
@@ -18,6 +21,7 @@ class Notificacao {
     data['\$id'] = id;
     data['titulo'] = titulo;
     data['menssege'] = menssege;
+    data['dateMade'] = dateMade;
     return data;
   }
 }
