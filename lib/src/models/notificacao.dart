@@ -11,8 +11,8 @@ class Notificacao {
     required this.dateMade,
   });
   Notificacao.fromJson(Map<String, dynamic> json)
-      : titulo = json['titulo'],
-        menssege = json['menssege'],
+      : titulo = json['titulo'] ?? '',
+        menssege = json['menssege'] ?? '',
         dateMade = json['dateMade'] ?? DateTime.now().millisecondsSinceEpoch,
         id = json['\$id'];
 
