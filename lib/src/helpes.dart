@@ -63,12 +63,12 @@ class Helps {
     return "${string[0].toUpperCase()}${string.substring(1).toLowerCase()}";
   }
 
-  static void log(e) {
+  static void log(error) {
     var logger = Logger();
     try {
-      logger.e(e, null, e.stackTrace);
+      logger.e(error, null, error.stackTrace);
     } catch (e) {
-      logger.w(e, null);
+      logger.w(error, null);
     }
   }
 }
