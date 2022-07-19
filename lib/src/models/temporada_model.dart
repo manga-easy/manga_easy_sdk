@@ -1,6 +1,6 @@
 class TemporadaModel {
   static String get collectionId => '61e8bc42189b4';
-  String id;
+  String? id;
   String nome;
   int datainit;
   int? datafim;
