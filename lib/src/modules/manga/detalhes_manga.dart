@@ -1,5 +1,5 @@
+import 'package:sdk_manga_easy/src/modules/manga/gender.dart';
 import 'chapter.dart';
-import 'gender.dart';
 
 class DetalhesManga {
   String? id;

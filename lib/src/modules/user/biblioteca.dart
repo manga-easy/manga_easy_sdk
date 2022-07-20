@@ -1,6 +1,6 @@
 import 'dart:convert' as j;
-import '../helpes.dart';
-import 'manga.dart';
+import '../../helpes.dart';
+import '../manga/manga.dart';
 
 enum StatusBiblioteca { lendo, dropado, lido, planejo }
 

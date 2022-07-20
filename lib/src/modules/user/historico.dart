@@ -1,8 +1,8 @@
 import 'dart:convert' as j;
 
-import '../helpes.dart';
-import 'chapter.dart';
-import 'manga.dart';
+import '../../helpes.dart';
+import '../manga/chapter.dart';
+import '../manga/manga.dart';
 
 class Historico {
   static String get collectionId => '617b5e10b202a';
