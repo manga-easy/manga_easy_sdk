@@ -25,4 +25,7 @@ export 'src/modules/manga/views_comic.dart';
 export 'src/modules/manga/info_comic_model.dart';
 export 'src/modules/general/permissions_model.dart';
 export 'src/modules/xp/temporada_model.dart';
+export 'src/modules/enquete/answer_model.dart';
+export 'src/modules/enquete/enquete_model.dart';
+export 'src/modules/enquete/question_model.dart';
 // TODO: Export any libraries intended for clients of this package.
