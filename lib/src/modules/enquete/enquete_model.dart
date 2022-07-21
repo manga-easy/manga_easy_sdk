@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:sdk_manga_easy/sdk_manga_easy.dart';
 import 'package:sdk_manga_easy/src/modules/enquete/question_model.dart';
 
 enum EnqueteStatus { progress, finished }
@@ -22,7 +25,7 @@ class EnqueteModel {
 
   EnqueteModel.fromJson(Map<String, dynamic> json)
       : name = json['name'],
-        questions = (json['questions'] as List).map((e) => Question.fromJson(json)).toList(),
+        questions = (json['questions'] as List).map((e) => Question.fromJson(Helps.decode(json))).toList(),
         status = EnqueteStatus.values.elementAt(json['status']),
         createDate = json['createDate'],
         finishedDate = json['finishedDate'],
@@ -31,7 +34,7 @@ class EnqueteModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
     data['name'] = name;
-    data['questions'] = questions.map((e) => e.toJson()).toList();
+    data['questions'] = questions.map((e) => json.encode(e)).toList();
     data['status'] = status.index;
     data['createDate'] = createDate;
     data['finishedDate'] = finishedDate;
