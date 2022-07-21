@@ -29,7 +29,7 @@ class EnqueteModel {
         status = EnqueteStatus.values.elementAt(json['status']),
         createDate = json['createDate'],
         finishedDate = json['finishedDate'],
-        id = json['id'];
+        id = json['\$id'];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -38,7 +38,7 @@ class EnqueteModel {
     data['status'] = status.index;
     data['createDate'] = createDate;
     data['finishedDate'] = finishedDate;
-    data['id'] = id;
+    data['\$id'] = id;
     return data;
   }
 }

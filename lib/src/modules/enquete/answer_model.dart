@@ -21,7 +21,7 @@ class AnswerModel {
         createDate = json['createDate'],
         idEnquente = json['idEnquente'],
         idUser = json['idUser'],
-        id = json['id'];
+        id = json['\$id'];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -29,7 +29,7 @@ class AnswerModel {
     data['createDate'] = createDate;
     data['idEnquente'] = idEnquente;
     data['idUser'] = idUser;
-    data['id'] = id;
+    data['\$id'] = id;
     return data;
   }
 }
