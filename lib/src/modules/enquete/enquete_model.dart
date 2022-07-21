@@ -22,8 +22,8 @@ class EnqueteModel {
 
   EnqueteModel.fromJson(Map<String, dynamic> json)
       : name = json['name'],
-        questions = json['questions'],
-        status = json['status'],
+        questions = (json['questions'] as List).map((e) => Question.fromJson(json)).toList(),
+        status = EnqueteStatus.values.elementAt(json['status']),
         createDate = json['createDate'],
         finishedDate = json['finishedDate'],
         id = json['id'];
@@ -31,8 +31,8 @@ class EnqueteModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
     data['name'] = name;
-    data['questions'] = questions;
-    data['status'] = status;
+    data['questions'] = questions.map((e) => e.toJson()).toList();
+    data['status'] = status.index;
     data['createDate'] = createDate;
     data['finishedDate'] = finishedDate;
     data['id'] = id;

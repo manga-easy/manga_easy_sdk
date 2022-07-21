@@ -17,7 +17,7 @@ class AnswerModel {
   });
 
   AnswerModel.fromJson(Map<String, dynamic> json)
-      : answer = json['answer'],
+      : answer = Question.fromJson(json['answer']),
         createDate = json['createDate'],
         idEnquente = json['idEnquente'],
         idUser = json['idUser'],
@@ -25,7 +25,7 @@ class AnswerModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['answer'] = answer;
+    data['answer'] = answer.toJson();
     data['createDate'] = createDate;
     data['idEnquente'] = idEnquente;
     data['idUser'] = idUser;
