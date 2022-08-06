@@ -42,6 +42,6 @@ class Chapter {
     if (number is double) {
       return number;
     }
-    return double.tryParse(number) ?? 0.0;
+    return double.tryParse(number.toString()) ?? 0.0;
   }
 }
