@@ -3,7 +3,7 @@ enum TypeEmblema { asset, svg, link }
 enum CategoriaEmblema { evento, doacao, rank }
 
 enum RarityEmblema {
-  comum(label: 'Comun', horn: 'assets/emblemas/Chifre_cinza.webp'),
+  comum(label: 'Comum', horn: 'assets/emblemas/Chifre_cinza.webp'),
   incomum(label: 'Incomum', horn: 'assets/emblemas/Chifre_verde.webp'),
   raro(label: 'Raro', horn: 'assets/emblemas/Chifre_Azul.webp'),
   mitico(label: 'Mítico', horn: 'assets/emblemas/Chifre_Roxa.webp'),
