@@ -21,7 +21,7 @@ class Chapter {
       : id = json['id'],
         title = json['title'],
         date = json['date'] ?? "",
-        number = double.tryParse(json['number']) ?? 0.0,
+        number = validateNumber(json['number']),
         imagens = json['imagens'] != null
             ? json['imagens'].map<ImageChapter>((e) => ImageChapter.fromJson(e)).toList()
             : [],
@@ -36,5 +36,12 @@ class Chapter {
     data['href'] = href;
     data['imagens'] = imagens.map((v) => v.toJson()).toList();
     return data;
+  }
+
+  static double validateNumber(number) {
+    if (number is double) {
+      return number;
+    }
+    return double.tryParse(number) ?? 0.0;
   }
 }
