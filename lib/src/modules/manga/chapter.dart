@@ -21,7 +21,7 @@ class Chapter {
       : id = json['id'],
         title = json['title'],
         date = json['date'] ?? "",
-        number = json['number'] ?? 0,
+        number = double.tryParse(json['number']) ?? 0.0,
         imagens = json['imagens'] != null
             ? json['imagens'].map<ImageChapter>((e) => ImageChapter.fromJson(e)).toList()
             : [],
