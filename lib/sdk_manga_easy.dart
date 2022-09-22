@@ -28,4 +28,6 @@ export 'src/modules/xp/temporada_model.dart';
 export 'src/modules/enquete/answer_model.dart';
 export 'src/modules/enquete/enquete_model.dart';
 export 'src/modules/enquete/question_model.dart';
+export 'src/modules/about/role_team_model.dart';
+export 'src/modules/about/team_model.dart';
 // TODO: Export any libraries intended for clients of this package.
