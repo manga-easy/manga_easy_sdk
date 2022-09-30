@@ -45,20 +45,6 @@ class Helps {
     return value;
   }
 
-  static String validaCapitulos(String element) {
-    String numeroCap = '';
-    try {
-      numeroCap = element.replaceFirst('Capítulo #', '');
-      numeroCap = numeroCap.replaceFirst('Cap.', '');
-      if (numeroCap.startsWith('0') && numeroCap.length > 2) {
-        numeroCap = numeroCap.substring(1, numeroCap.length);
-      }
-      return numeroCap.trim();
-    } catch (e) {
-      return element.trim();
-    }
-  }
-
   static String capitalize(String string) {
     return "${string[0].toUpperCase()}${string.substring(1).toLowerCase()}";
   }
