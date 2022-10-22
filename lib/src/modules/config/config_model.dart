@@ -7,6 +7,9 @@ class ConfigAppModel {
   bool adsOn;
   int build;
   int updateApp;
+  List<String> blockList;
+  List<String> over18List;
+
   ConfigAppModel({
     this.id,
     required this.linkDiscord,
@@ -15,6 +18,8 @@ class ConfigAppModel {
     required this.adsOn,
     required this.build,
     required this.updateApp,
+    required this.blockList,
+    required this.over18List,
   });
 
   ConfigAppModel.fromJson(dynamic json)
@@ -23,17 +28,21 @@ class ConfigAppModel {
         nivelAtivo = json['nivelAtivo'] ?? false,
         adsOn = json['adsOn'] ?? false,
         build = json['build'] ?? 50,
+        blockList = List.from(json['block_list'] ?? []),
+        over18List = List.from(json['over_18_list'] ?? []),
         updateApp = json['updateApp'] ?? DateTime.now().millisecondsSinceEpoch,
         id = json['\$id'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['\$id'] = id;
-    data['linkDiscord'] = linkDiscord;
-    data['politica'] = politica;
-    data['nivelAtivo'] = nivelAtivo;
-    data['adsOn'] = adsOn;
-    data['build'] = build;
-    return data;
+    return {
+      '\$id': id,
+      'linkDiscord': linkDiscord,
+      'politica': politica,
+      'nivelAtivo': nivelAtivo,
+      'adsOn': adsOn,
+      'build': build,
+      'over_18_list': over18List,
+      'block_list': blockList,
+    };
   }
 }
