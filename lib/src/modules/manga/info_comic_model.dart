@@ -45,7 +45,7 @@ class InfoComicModel {
         scans = json['scans'],
         dateUp = json['dateUp'],
         dateMade = json['dateMade'],
-        isAdult = json['isAdult'],
+        isAdult = json['isAdult'] ?? false,
         isNotAtualiza = json['isNotAtualiza'] ?? false,
         generos = json['generos'];
 
