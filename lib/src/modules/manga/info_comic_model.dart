@@ -1,6 +1,6 @@
 class InfoComicModel {
   static String get collectionId => '62408a74a3081ee2886a';
-
+  String? id;
   String name;
   String uniqueid;
   String ultimoCap;
@@ -17,6 +17,7 @@ class InfoComicModel {
   bool isAdult;
 
   InfoComicModel({
+    this.id,
     required this.name,
     required this.uniqueid,
     required this.ultimoCap,
@@ -35,6 +36,7 @@ class InfoComicModel {
 
   InfoComicModel.fromJson(Map<String, dynamic> json)
       : name = json['name'],
+        id = json['\$id'],
         uniqueid = json['uniqueid'],
         ultimoCap = json['ultimoCap'],
         totalViews = json['totalViews'],
@@ -52,6 +54,7 @@ class InfoComicModel {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
+      '\$id': id,
       'uniqueid': uniqueid,
       'ultimoCap': ultimoCap,
       'totalViews': totalViews,

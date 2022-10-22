@@ -1,6 +1,6 @@
 class ViewsComics {
   static String get collectionId => '6298b6f30ae9b0bf95b5';
-
+  String? id;
   String uniqueid;
   String idUser;
   String dateCria;
@@ -15,16 +15,18 @@ class ViewsComics {
 
   ViewsComics.fromJson(Map<String, dynamic> json)
       : idUser = json['idUser'],
+        id = json['\$id'],
         uniqueid = json['uniqueid'],
         idHost = json['idHost'],
         dateCria = json['dateCria'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['idUser'] = idUser;
-    data['uniqueid'] = uniqueid;
-    data['idHost'] = idHost;
-    data['dateCria'] = dateCria;
-    return data;
+    return {
+      '\$id': id,
+      'idUser': idUser,
+      'uniqueid': uniqueid,
+      'idHost': idHost,
+      'dateCria': dateCria,
+    };
   }
 }
