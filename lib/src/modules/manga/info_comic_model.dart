@@ -14,6 +14,7 @@ class InfoComicModel {
   int dateMade;
   String generos;
   bool isNotAtualiza;
+  bool isAdult;
 
   InfoComicModel({
     required this.name,
@@ -29,6 +30,7 @@ class InfoComicModel {
     required this.dateMade,
     required this.generos,
     required this.isNotAtualiza,
+    required this.isAdult,
   });
 
   InfoComicModel.fromJson(Map<String, dynamic> json)
@@ -43,24 +45,26 @@ class InfoComicModel {
         scans = json['scans'],
         dateUp = json['dateUp'],
         dateMade = json['dateMade'],
+        isAdult = json['isAdult'],
         isNotAtualiza = json['isNotAtualiza'] ?? false,
         generos = json['generos'];
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['name'] = name;
-    data['uniqueid'] = uniqueid;
-    data['ultimoCap'] = ultimoCap;
-    data['totalViews'] = totalViews;
-    data['autor'] = autor;
-    data['thumb'] = thumb;
-    data['sinopse'] = sinopse;
-    data['ratio'] = ratio;
-    data['scans'] = scans;
-    data['dateUp'] = dateUp;
-    data['isNotAtualiza'] = isNotAtualiza;
-    data['dateMade'] = dateMade;
-    data['generos'] = generos;
-    return data;
+    return {
+      'name': name,
+      'uniqueid': uniqueid,
+      'ultimoCap': ultimoCap,
+      'totalViews': totalViews,
+      'autor': autor,
+      'thumb': thumb,
+      'sinopse': sinopse,
+      'ratio': ratio,
+      'scans': scans,
+      'dateUp': dateUp,
+      'isNotAtualiza': isNotAtualiza,
+      'dateMade': dateMade,
+      'generos': generos,
+      'isAdult': isAdult,
+    };
   }
 }
