@@ -4,7 +4,15 @@ import 'package:host_mangas/host_mangas.dart';
 import '../../helpes.dart';
 import '../manga/manga.dart';
 
-enum StatusBiblioteca { lendo, dropado, lido, planejo }
+enum StatusBiblioteca {
+  lendo('Lendo'),
+  dropado('Dropado'),
+  lido('Concluído'),
+  planejo('Em espera');
+
+  final String title;
+  const StatusBiblioteca(this.title);
+}
 
 class Biblioteca {
   static String get collectionId => '617b5db178fd3';
