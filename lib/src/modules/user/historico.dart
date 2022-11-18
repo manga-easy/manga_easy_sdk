@@ -1,5 +1,7 @@
 import 'dart:convert' as j;
 
+import 'package:host_mangas/host_mangas.dart';
+
 import '../../helpes.dart';
 import '../manga/chapter.dart';
 import '../manga/manga.dart';
@@ -9,20 +11,20 @@ class Historico {
   String? id;
   String idManga;
   String uniqueid;
-  Manga? manga;
+  Manga manga;
   String idUser;
   Chapter? capAtual;
-  int dataUp;
-  DateTime dataCria;
-  bool deletado;
+  int updatedAt;
+  int createdAt;
+  bool isDeleted;
   List chapterLidos;
 
   Historico({
     this.capAtual,
-    required this.dataCria,
+    required this.createdAt,
     required this.idManga,
-    required this.dataUp,
-    required this.deletado,
+    required this.updatedAt,
+    required this.isDeleted,
     required this.idUser,
     required this.manga,
     required this.chapterLidos,
@@ -32,30 +34,28 @@ class Historico {
   Historico.fromJson(dynamic json)
       : id = json['\$id'] ?? json['id'],
         idManga = json['idManga'],
-        uniqueid = Helps.convertUniqueid(json['idManga']),
+        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
         capAtual = json['capAtual'] != null ? Chapter.fromJson(Helps.decode(json['capAtual'])) : null,
         idUser = json['idUser'] ?? '',
-        dataUp = validaDatatime(json['dataUp']),
-        deletado = json['deletado'] ?? false,
+        updatedAt = validateUpdatedAt(json),
+        isDeleted = validateIsDeleted(json),
         chapterLidos = validaChaprterLido(json['chapterLidos']),
-        manga =
-            json['manga'] != null && json['manga'] != "" ? Manga.fromJson(Helps.decode(json['manga'])) : null,
-        dataCria = json['dataCria'] is DateTime ? json['dataCria'] : DateTime.parse(json['dataCria']);
+        manga = validateManga(json),
+        createdAt = validateCreatedAt(json);
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['\$id'] = id;
-    data['idManga'] = idManga;
-    data['dataUp'] = dataUp;
-    data['deletado'] = deletado;
-    data['uniqueid'] = uniqueid;
-    data['manga'] = manga != null ? j.json.encode(manga!.toJson()) : null;
-    data['capAtual'] = capAtual != null ? j.json.encode(capAtual!.toJson()) : null;
-    data['dataCria'] = dataCria.toString();
-    data['chapterLidos'] = chapterLidos;
-    data['idUser'] = idUser;
-
-    return data;
+    return {
+      '\$id': id,
+      'idManga': idManga,
+      'updatedAt': updatedAt,
+      'isDeleted': isDeleted,
+      'uniqueid': uniqueid,
+      'manga': j.json.encode(manga),
+      'capAtual': capAtual != null ? j.json.encode(capAtual) : null,
+      'createdAt': createdAt,
+      'chapterLidos': chapterLidos,
+      'idUser': idUser,
+    };
   }
 
   static validaDatatime(data) {
@@ -70,5 +70,53 @@ class Historico {
       return [];
     }
     return data;
+  }
+
+  static int validateUpdatedAt(Map<String, dynamic> json) {
+    if (json['dataUp'] != null) {
+      return json['dataUp'];
+    }
+    if (json['updatedAt'] != null) {
+      return json['updatedAt'];
+    }
+    return DateTime.now().millisecondsSinceEpoch;
+  }
+
+  static int validateCreatedAt(Map<String, dynamic> json) {
+    if (json['dataCria'] != null) {
+      var date = json['dataCria'];
+      if (date is DateTime) {
+        return date.millisecondsSinceEpoch;
+      }
+      return DateTime.parse(date).millisecondsSinceEpoch;
+    }
+    if (json['createdAt'] != null) {
+      return json['createdAt'];
+    }
+    return DateTime.now().millisecondsSinceEpoch;
+  }
+
+  static Manga validateManga(Map<String, dynamic> json) {
+    if (json['manga']) {
+      return Manga.fromJson(Helps.decode(json['manga']));
+    }
+    return Manga.fromValue(
+      capa: '',
+      href: '',
+      title: json['idManga'],
+      idHost: IHostManga.retornaIdHost(
+        v: json['idManga'],
+      ),
+    );
+  }
+
+  static bool validateIsDeleted(Map<String, dynamic> json) {
+    if (json['deletado'] != null) {
+      return json['deletado'];
+    }
+    if (json['isDeleted'] != null) {
+      return json['isDeleted'];
+    }
+    return false;
   }
 }
