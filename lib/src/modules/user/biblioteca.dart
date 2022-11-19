@@ -112,12 +112,13 @@ class Biblioteca {
   }
 
   static Manga validateManga(Map<String, dynamic> json) {
-    if (json['manga']) {
+    if (json['manga'] != null) {
       return Manga.fromJson(Helps.decode(json['manga']));
     }
     return Manga.fromValue(
       capa: '',
       href: '',
+      uniqueid: Helps.convertUniqueid(json['idManga']),
       title: json['idManga'],
       idHost: IHostManga.retornaIdHost(
         v: json['idManga'],
