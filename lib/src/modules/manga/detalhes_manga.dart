@@ -1,9 +1,9 @@
-import 'package:sdk_manga_easy/src/modules/manga/gender.dart';
-import 'chapter.dart';
+import 'package:sdk_manga_easy/sdk_manga_easy.dart';
 
 class DetalhesManga {
   String? id;
   String title;
+  String uniqueid;
   String capa;
   String sinopse;
   List<Gender> generos;
@@ -16,6 +16,7 @@ class DetalhesManga {
   int idHost;
 
   DetalhesManga({
+    required this.uniqueid,
     required this.title,
     required this.capa,
     required this.sinopse,
@@ -29,8 +30,9 @@ class DetalhesManga {
     required this.idHost,
   });
 
-  DetalhesManga.fromJson(dynamic json)
+  DetalhesManga.fromJson(Map<String, dynamic> json)
       : id = json['id'],
+        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['title']),
         idHost = json['idHost'] ?? 0,
         ano = json['ano'] ?? '',
         scans = json['scans'] ?? '',
@@ -59,6 +61,7 @@ class DetalhesManga {
     data['generos'] = generos.map((v) => v.toJson()).toList();
     data['autor'] = autor;
     data['artista'] = artista;
+    data['uniqueid'] = uniqueid;
     data['capitulos'] = capitulos.map((v) => v.toJson()).toList();
     return data;
   }
