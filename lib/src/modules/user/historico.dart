@@ -9,7 +9,6 @@ import '../manga/manga.dart';
 class Historico {
   static String get collectionId => '617b5e10b202a';
   String? id;
-  String idManga;
   String uniqueid;
   Manga manga;
   String idUser;
@@ -22,7 +21,6 @@ class Historico {
   Historico({
     this.capAtual,
     required this.createdAt,
-    required this.idManga,
     required this.updatedAt,
     required this.isDeleted,
     required this.idUser,
@@ -33,7 +31,6 @@ class Historico {
 
   Historico.fromJson(dynamic json)
       : id = json['\$id'] ?? json['id'],
-        idManga = json['idManga'],
         uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
         capAtual = json['capAtual'] != null ? Chapter.fromJson(Helps.decode(json['capAtual'])) : null,
         idUser = json['idUser'] ?? '',
@@ -46,7 +43,6 @@ class Historico {
   Map<String, dynamic> toJson() {
     return {
       '\$id': id,
-      'idManga': idManga,
       'updatedAt': updatedAt,
       'isDeleted': isDeleted,
       'uniqueid': uniqueid,
@@ -97,12 +93,13 @@ class Historico {
   }
 
   static Manga validateManga(Map<String, dynamic> json) {
-    if (json['manga']) {
+    if (json['manga'] != null) {
       return Manga.fromJson(Helps.decode(json['manga']));
     }
     return Manga.fromValue(
       capa: '',
       href: '',
+      uniqueid: Helps.convertUniqueid(json['idManga']),
       title: json['idManga'],
       idHost: IHostManga.retornaIdHost(
         v: json['idManga'],
