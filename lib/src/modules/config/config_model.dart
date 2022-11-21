@@ -9,6 +9,8 @@ class ConfigAppModel {
   int updateApp;
   List<String> blockList;
   List<String> over18List;
+  bool isCatalog;
+  bool isViews;
 
   ConfigAppModel({
     this.id,
@@ -20,6 +22,8 @@ class ConfigAppModel {
     required this.updateApp,
     required this.blockList,
     required this.over18List,
+    required this.isCatalog,
+    required this.isViews,
   });
 
   ConfigAppModel.fromJson(dynamic json)
@@ -28,6 +32,8 @@ class ConfigAppModel {
         nivelAtivo = json['nivelAtivo'] ?? false,
         adsOn = json['adsOn'] ?? false,
         build = json['build'] ?? 50,
+        isCatalog = json['isCatalog'] ?? false,
+        isViews = json['isViews'] ?? false,
         blockList = List.from(json['block_list'] ?? []),
         over18List = List.from(json['over_18_list'] ?? []),
         updateApp = json['updateApp'] ?? DateTime.now().millisecondsSinceEpoch,
@@ -43,6 +49,20 @@ class ConfigAppModel {
       'build': build,
       'over_18_list': over18List,
       'block_list': blockList,
+      'isViews': isViews,
+      'isCatalog': isCatalog,
     };
   }
+
+  ConfigAppModel.offline()
+      : blockList = [],
+        over18List = [],
+        linkDiscord = 'https://discord.com/invite/aK6GVd2uH2',
+        nivelAtivo = true,
+        adsOn = true,
+        build = 50,
+        updateApp = 1,
+        isCatalog = false,
+        isViews = false,
+        politica = 'https://www.freeprivacypolicy.com/live/f0568cc0-8f04-4413-a5b9-f823bbc733f1';
 }
