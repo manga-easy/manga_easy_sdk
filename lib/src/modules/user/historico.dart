@@ -17,6 +17,7 @@ class Historico {
   int createdAt;
   bool isDeleted;
   List chapterLidos;
+  bool isSync;
 
   Historico({
     this.capAtual,
@@ -27,9 +28,10 @@ class Historico {
     required this.manga,
     required this.chapterLidos,
     required this.uniqueid,
+    required this.isSync,
   });
 
-  Historico.fromJson(dynamic json)
+  Historico.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'],
         uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
         capAtual = json['capAtual'] != null ? Chapter.fromJson(Helps.decode(json['capAtual'])) : null,
@@ -38,6 +40,7 @@ class Historico {
         isDeleted = validateIsDeleted(json),
         chapterLidos = validaChaprterLido(json['chapterLidos']),
         manga = validateManga(json),
+        isSync = json['isSync'] ?? false,
         createdAt = validateCreatedAt(json);
 
   Map<String, dynamic> toJson() {
@@ -49,6 +52,7 @@ class Historico {
       'manga': j.json.encode(manga),
       'capAtual': capAtual != null ? j.json.encode(capAtual) : null,
       'createdAt': createdAt,
+      'isSync': isSync,
       'chapterLidos': chapterLidos,
       'idUser': idUser,
     };
@@ -69,25 +73,25 @@ class Historico {
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {
-    if (json['dataUp'] != null) {
-      return json['dataUp'];
-    }
     if (json['updatedAt'] != null) {
       return json['updatedAt'];
+    }
+    if (json['dataUp'] != null) {
+      return json['dataUp'];
     }
     return DateTime.now().millisecondsSinceEpoch;
   }
 
   static int validateCreatedAt(Map<String, dynamic> json) {
+    if (json['createdAt'] != null) {
+      return json['createdAt'];
+    }
     if (json['dataCria'] != null) {
       var date = json['dataCria'];
       if (date is DateTime) {
         return date.millisecondsSinceEpoch;
       }
       return DateTime.parse(date).millisecondsSinceEpoch;
-    }
-    if (json['createdAt'] != null) {
-      return json['createdAt'];
     }
     return DateTime.now().millisecondsSinceEpoch;
   }
@@ -96,23 +100,21 @@ class Historico {
     if (json['manga'] != null) {
       return Manga.fromJson(Helps.decode(json['manga']));
     }
-    return Manga.fromValue(
+    return Manga(
       capa: '',
       href: '',
       uniqueid: Helps.convertUniqueid(json['idManga']),
       title: json['idManga'],
-      idHost: IHostManga.retornaIdHost(
-        v: json['idManga'],
-      ),
+      idHost: 0,
     );
   }
 
   static bool validateIsDeleted(Map<String, dynamic> json) {
-    if (json['deletado'] != null) {
-      return json['deletado'];
-    }
     if (json['isDeleted'] != null) {
       return json['isDeleted'];
+    }
+    if (json['deletado'] != null) {
+      return json['deletado'];
     }
     return false;
   }

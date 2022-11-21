@@ -78,35 +78,36 @@ class Biblioteca {
   }
 
   static bool validateIsDeleted(Map<String, dynamic> json) {
-    if (json['deletado'] != null) {
-      return json['deletado'];
-    }
     if (json['isDeleted'] != null) {
       return json['isDeleted'];
+    }
+
+    if (json['deletado'] != null) {
+      return json['deletado'];
     }
     return false;
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {
-    if (json['dataUpdade'] != null) {
-      return json['dataUpdade'];
-    }
     if (json['updatedAt'] != null) {
       return json['updatedAt'];
+    }
+    if (json['dataUpdade'] != null) {
+      return json['dataUpdade'];
     }
     return DateTime.now().millisecondsSinceEpoch;
   }
 
   static int validateCreatedAt(Map<String, dynamic> json) {
+    if (json['createdAt'] != null) {
+      return json['createdAt'];
+    }
     if (json['dataCria'] != null) {
       var date = json['dataCria'];
       if (date is DateTime) {
         return date.millisecondsSinceEpoch;
       }
       return DateTime.parse(date).millisecondsSinceEpoch;
-    }
-    if (json['createdAt'] != null) {
-      return json['createdAt'];
     }
     return DateTime.now().millisecondsSinceEpoch;
   }
@@ -115,14 +116,12 @@ class Biblioteca {
     if (json['manga'] != null) {
       return Manga.fromJson(Helps.decode(json['manga']));
     }
-    return Manga.fromValue(
+    return Manga(
       capa: '',
       href: '',
       uniqueid: Helps.convertUniqueid(json['idManga']),
-      title: json['idManga'],
-      idHost: IHostManga.retornaIdHost(
-        v: json['idManga'],
-      ),
+      title: json['idManga'] ?? '',
+      idHost: 0,
     );
   }
 }
