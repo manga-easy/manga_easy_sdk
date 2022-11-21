@@ -9,7 +9,7 @@ class Manga {
   String capa;
   int idHost;
 
-  Manga.fromValue({
+  Manga({
     required this.capa,
     required this.href,
     required this.title,
@@ -24,7 +24,7 @@ class Manga {
         href = json['href'],
         idHost = json['idHost'] ??
             IHostManga.retornaIdHost(
-              v: json['title'],
+              v: json['href'],
             ),
         capa = json['capa'];
 
