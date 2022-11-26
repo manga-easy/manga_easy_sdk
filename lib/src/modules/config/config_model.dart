@@ -7,8 +7,8 @@ class ConfigAppModel {
   bool adsOn;
   int build;
   int updateApp;
-  List<String> blockList;
-  List<String> over18List;
+  bool ativaAppwrite;
+  String hostAppwrite;
   bool isCatalog;
   bool isViews;
 
@@ -20,10 +20,10 @@ class ConfigAppModel {
     required this.adsOn,
     required this.build,
     required this.updateApp,
-    required this.blockList,
-    required this.over18List,
     required this.isCatalog,
     required this.isViews,
+    required this.ativaAppwrite,
+    required this.hostAppwrite,
   });
 
   ConfigAppModel.fromJson(dynamic json)
@@ -32,10 +32,10 @@ class ConfigAppModel {
         nivelAtivo = json['nivelAtivo'] ?? false,
         adsOn = json['adsOn'] ?? false,
         build = json['build'] ?? 50,
+        ativaAppwrite = json['ativa_Appwrite'],
+        hostAppwrite = json['host_appwrite'],
         isCatalog = json['isCatalog'] ?? false,
         isViews = json['isViews'] ?? false,
-        blockList = List.from(json['block_list'] ?? []),
-        over18List = List.from(json['over_18_list'] ?? []),
         updateApp = json['updateApp'] ?? DateTime.now().millisecondsSinceEpoch,
         id = json['\$id'];
 
@@ -47,22 +47,23 @@ class ConfigAppModel {
       'nivelAtivo': nivelAtivo,
       'adsOn': adsOn,
       'build': build,
-      'over_18_list': over18List,
-      'block_list': blockList,
+      'ativa_Appwrite': ativaAppwrite,
+      'host_appwrite': hostAppwrite,
       'isViews': isViews,
       'isCatalog': isCatalog,
     };
   }
 
   ConfigAppModel.offline()
-      : blockList = [],
-        over18List = [],
-        linkDiscord = 'https://discord.com/invite/aK6GVd2uH2',
+      : linkDiscord = 'https://discord.com/invite/aK6GVd2uH2',
         nivelAtivo = true,
         adsOn = true,
         build = 50,
         updateApp = 1,
         isCatalog = false,
         isViews = false,
-        politica = 'https://www.freeprivacypolicy.com/live/f0568cc0-8f04-4413-a5b9-f823bbc733f1';
+        ativaAppwrite = true,
+        hostAppwrite = 'https://app.lucas-cm.com.br/v1',
+        politica =
+            'https://www.freeprivacypolicy.com/live/f0568cc0-8f04-4413-a5b9-f823bbc733f1';
 }
