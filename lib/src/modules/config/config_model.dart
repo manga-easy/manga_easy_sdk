@@ -32,8 +32,9 @@ class ConfigAppModel {
         nivelAtivo = json['nivelAtivo'] ?? false,
         adsOn = json['adsOn'] ?? false,
         build = json['build'] ?? 50,
-        ativaAppwrite = json['ativa_Appwrite'],
-        hostAppwrite = json['host_appwrite'],
+        ativaAppwrite = json['ativa_Appwrite'] ?? true,
+        hostAppwrite =
+            json['host_appwrite'] ?? 'https://app.lucas-cm.com.br/v1',
         isCatalog = json['isCatalog'] ?? false,
         isViews = json['isViews'] ?? false,
         updateApp = json['updateApp'] ?? DateTime.now().millisecondsSinceEpoch,
