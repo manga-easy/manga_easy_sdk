@@ -1,5 +1,4 @@
 class ConfigAppModel {
-  String? id;
   String linkDiscord;
   String? politica;
   bool nivelAtivo;
@@ -12,7 +11,6 @@ class ConfigAppModel {
   bool isViews;
 
   ConfigAppModel({
-    this.id,
     required this.linkDiscord,
     this.politica,
     required this.nivelAtivo,
@@ -36,12 +34,10 @@ class ConfigAppModel {
             json['host_appwrite'] ?? 'https://app.lucas-cm.com.br/v1',
         isCatalog = json['isCatalog'] ?? false,
         isViews = json['isViews'] ?? false,
-        updateApp = json['updateApp'] ?? DateTime.now().millisecondsSinceEpoch,
-        id = json['\$id'];
+        updateApp = json['updateApp'] ?? 1;
 
   Map<String, dynamic> toJson() {
     return {
-      '\$id': id,
       'linkDiscord': linkDiscord,
       'politica': politica,
       'nivelAtivo': nivelAtivo,
@@ -51,6 +47,7 @@ class ConfigAppModel {
       'host_appwrite': hostAppwrite,
       'isViews': isViews,
       'isCatalog': isCatalog,
+      'updateApp': updateApp,
     };
   }
 

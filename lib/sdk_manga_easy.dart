@@ -32,5 +32,5 @@ export 'src/modules/about/role_team_model.dart';
 export 'src/modules/about/team_model.dart';
 export 'src/modules/config/config_model.dart';
 export 'src/modules/config/host_model.dart';
-
+export 'src/modules/config/block_list_model.dart';
 // TODO: Export any libraries intended for clients of this package.
