@@ -1,5 +1,4 @@
 class ConfigAppModel {
-  static String get collectionId => '6186f3b277a9a';
   String? id;
   String linkDiscord;
   String? politica;
