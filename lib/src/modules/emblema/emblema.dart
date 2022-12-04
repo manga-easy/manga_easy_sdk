@@ -78,10 +78,27 @@ class Emblema {
   }
 
   static RarityEmblema validaRarity(String rarity) {
-    var index = RarityEmblema.values.indexWhere((element) => element.name == rarity);
+    var index = RarityEmblema.values.indexWhere(
+      (element) => element.name == rarity,
+    );
     if (index == -1) {
-      index = RarityEmblema.values.indexWhere((element) => element.label == rarity);
+      index = RarityEmblema.values.indexWhere(
+        (element) => element.label == rarity,
+      );
     }
     return RarityEmblema.values[index];
   }
+
+  Emblema.empty()
+      : name = '',
+        timeCria = DateTime.now().millisecondsSinceEpoch,
+        rarity = RarityEmblema.comum,
+        description = '',
+        percent = 0.1,
+        url = '',
+        benefits = [],
+        adsOff = false,
+        disponivel = false,
+        type = TypeEmblema.link.name,
+        categoria = CategoriaEmblema.evento.name;
 }
