@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:sdk_manga_easy/sdk_manga_easy.dart';
+import 'package:manga_easy_sdk/manga_easy_sdk.dart';
 
 enum EnqueteStatus { progress, finished, started }
 
@@ -27,7 +27,9 @@ class EnqueteModel {
   EnqueteModel.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         bannerLink = json['bannerLink'],
-        questions = (json['questions'] as List).map((e) => Question.fromJson(Helps.decode(e))).toList(),
+        questions = (json['questions'] as List)
+            .map((e) => Question.fromJson(Helps.decode(e)))
+            .toList(),
         status = EnqueteStatus.values.elementAt(json['status']),
         createDate = json['createDate'],
         finishedDate = json['finishedDate'],

@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library sdk_manga_easy;
+library manga_easy_sdk;
 
 export 'src/helpes.dart';
 export 'src/modules/general/banner_model.dart';

@@ -1,4 +1,4 @@
-import 'package:sdk_manga_easy/sdk_manga_easy.dart';
+import '../../../manga_easy_sdk.dart';
 
 class DetalhesManga {
   String? id;
@@ -40,12 +40,15 @@ class DetalhesManga {
         title = json['title'],
         capa = json['capa'],
         sinopse = json['sinopse'],
-        generos =
-            json['generos'] != null ? json['generos'].map<Gender>((e) => Gender.fromJson(e)).toList() : [],
+        generos = json['generos'] != null
+            ? json['generos'].map<Gender>((e) => Gender.fromJson(e)).toList()
+            : [],
         autor = json['autor'],
         artista = json['artista'],
         capitulos = json['capitulos'] != null
-            ? json['capitulos'].map<Chapter>((e) => Chapter.fromJson(e)).toList()
+            ? json['capitulos']
+                .map<Chapter>((e) => Chapter.fromJson(e))
+                .toList()
             : [];
 
   Map<String, dynamic> toJson() {

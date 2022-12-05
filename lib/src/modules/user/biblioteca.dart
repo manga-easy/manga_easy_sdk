@@ -1,6 +1,4 @@
 import 'dart:convert' as j;
-import 'package:host_mangas/host_mangas.dart';
-
 import '../../helpes.dart';
 import '../manga/manga.dart';
 

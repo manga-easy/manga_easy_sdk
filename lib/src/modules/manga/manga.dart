@@ -1,5 +1,6 @@
-import 'package:host_mangas/host_mangas.dart';
-import 'package:sdk_manga_easy/sdk_manga_easy.dart';
+import 'package:manga_easy_hosts/manga_easy_hosts.dart';
+
+import '../../../manga_easy_sdk.dart';
 
 class Manga {
   String? id;

@@ -1,4 +1,4 @@
-import 'package:sdk_manga_easy/src/modules/enquete/question_model.dart';
+import 'package:manga_easy_sdk/manga_easy_sdk.dart';
 
 class AnswerModel {
   static get collectionId => '62d832e1453c870f4138';

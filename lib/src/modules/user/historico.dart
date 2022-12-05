@@ -1,7 +1,4 @@
 import 'dart:convert' as j;
-
-import 'package:host_mangas/host_mangas.dart';
-
 import '../../helpes.dart';
 import '../manga/chapter.dart';
 import '../manga/manga.dart';
@@ -34,7 +31,9 @@ class Historico {
   Historico.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'],
         uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
-        capAtual = json['capAtual'] != null ? Chapter.fromJson(Helps.decode(json['capAtual'])) : null,
+        capAtual = json['capAtual'] != null
+            ? Chapter.fromJson(Helps.decode(json['capAtual']))
+            : null,
         idUser = json['idUser'] ?? '',
         updatedAt = validateUpdatedAt(json),
         isDeleted = validateIsDeleted(json),
