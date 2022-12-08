@@ -10,8 +10,9 @@ environment:
 
 dependencies:
   logger: ^1.1.0
-  manga_easy_hosts:
-    path: ../manga_easy_hosts
+  manga_easy_sdk:
+    git:
+      url: https://github.com/lucascardo12/manga_easy_sdk.git
 
 dev_dependencies:
   lints: ^2.0.1
