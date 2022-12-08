@@ -57,4 +57,18 @@ class Helps {
       logger.w(error, null);
     }
   }
+
+  static int retornaIdHost({required String v}) {
+    if (v.contains('mangahost4') ||
+        v.contains('mangahosted') ||
+        v.contains('mangahostz')) return 1;
+    if (v.contains('unionmangas') || v.contains('unionleitor')) return 3;
+    if (v.contains('wqscan')) return 4;
+    if (v.contains('miradscanlator')) return 5;
+    if (v.contains('muitomanga')) return 2;
+    if (v.contains('easy-scan')) return 7;
+    if (v.contains('vulcannovel')) return 8;
+    if (v.contains('niadd') || v.contains('nineanime')) return 9;
+    return 6;
+  }
 }

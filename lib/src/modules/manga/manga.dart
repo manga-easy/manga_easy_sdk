@@ -1,5 +1,3 @@
-import 'package:manga_easy_hosts/manga_easy_hosts.dart';
-
 import '../../../manga_easy_sdk.dart';
 
 class Manga {
@@ -24,7 +22,7 @@ class Manga {
         uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['title']),
         href = json['href'],
         idHost = json['idHost'] ??
-            IHostManga.retornaIdHost(
+            Helps.retornaIdHost(
               v: json['href'],
             ),
         capa = json['capa'];
