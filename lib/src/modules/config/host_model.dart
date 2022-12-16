@@ -27,6 +27,14 @@ class HostModel {
         interstitialAdUnitId = json['interstitialAdUnitId'],
         host = json['host'];
 
+  HostModel.empty()
+      : name = '',
+        order = -1,
+        status = '',
+        idHost = -1,
+        interstitialAdUnitId = '',
+        host = '';
+
   Map<String, dynamic> toJson() {
     return {
       'status': status,
