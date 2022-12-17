@@ -34,4 +34,6 @@ export 'src/modules/config/config_model.dart';
 export 'src/modules/config/host_model.dart';
 export 'src/modules/config/block_list_model.dart';
 export 'src/modules/reviews/review_model.dart';
+export 'src/modules/config/enums/host_status_enum.dart';
+
 // TODO: Export any libraries intended for clients of this package.
