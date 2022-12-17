@@ -1,3 +1,5 @@
+import 'package:manga_easy_sdk/src/modules/config/enums/host_status_enum.dart';
+
 class HostModel {
   static String get collectionId => '6228a4a974bc61d675d7';
   String? id;
@@ -5,7 +7,7 @@ class HostModel {
   int order;
   String name;
   String host;
-  String status;
+  HostStatus status;
   String interstitialAdUnitId;
 
   HostModel({
@@ -22,7 +24,7 @@ class HostModel {
       : id = json['\$id'],
         name = json['name'],
         order = json['order'],
-        status = json['status'],
+        status = HostStatus.getStatus(json['status']),
         idHost = json['idHost'],
         interstitialAdUnitId = json['interstitialAdUnitId'],
         host = json['host'];
@@ -30,14 +32,14 @@ class HostModel {
   HostModel.empty()
       : name = '',
         order = -1,
-        status = '',
+        status = HostStatus.disable,
         idHost = -1,
         interstitialAdUnitId = '',
         host = '';
 
   Map<String, dynamic> toJson() {
     return {
-      'status': status,
+      'status': status.name,
       '\$id': id,
       'name': name,
       'host': host,
