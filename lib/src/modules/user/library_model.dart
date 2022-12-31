@@ -2,17 +2,17 @@ import 'dart:convert' as j;
 import '../../helpes.dart';
 import '../manga/manga.dart';
 
-enum StatusBiblioteca {
+enum StatusLibrary {
   lendo('Lendo'),
   dropado('Dropado'),
   lido('Concluído'),
   planejo('Em espera');
 
   final String title;
-  const StatusBiblioteca(this.title);
+  const StatusLibrary(this.title);
 }
 
-class Biblioteca {
+class LibraryModel {
   static String get collectionId => '617b5db178fd3';
   String? id;
   int idHost;
@@ -25,7 +25,7 @@ class Biblioteca {
   String uniqueid;
   bool isSync;
 
-  Biblioteca({
+  LibraryModel({
     this.id,
     required this.idHost,
     required this.idUser,
@@ -38,7 +38,7 @@ class Biblioteca {
     required this.isSync,
   });
 
-  Biblioteca.fromJson(Map<String, dynamic> json)
+  LibraryModel.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'],
         idHost = json['idHost'],
         uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
@@ -67,10 +67,10 @@ class Biblioteca {
 
   static validateStatus(String? status) {
     if (status == null) {
-      return StatusBiblioteca.lendo.name;
+      return StatusLibrary.lendo.name;
     }
     if (status.isEmpty) {
-      return StatusBiblioteca.lendo.name;
+      return StatusLibrary.lendo.name;
     }
     return status;
   }
