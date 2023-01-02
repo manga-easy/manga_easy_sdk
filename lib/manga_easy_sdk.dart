@@ -8,7 +8,7 @@ export 'src/modules/general/banner_model.dart';
 export 'src/modules/general/recomendacoes_model.dart';
 export 'src/modules/xp/nivel_user.dart';
 export 'src/modules/manga/manga.dart';
-export 'src/modules/user/biblioteca.dart';
+export 'src/modules/user/library_model.dart';
 export 'src/modules/manga/chapter.dart';
 export 'src/modules/manga/detalhes_manga.dart';
 export 'src/modules/emblema/emblema.dart';
