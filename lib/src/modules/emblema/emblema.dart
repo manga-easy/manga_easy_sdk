@@ -3,17 +3,16 @@ enum TypeEmblema { asset, svg, link }
 enum CategoriaEmblema { evento, doacao, rank }
 
 enum RarityEmblema {
-  comum(label: 'Comum', horn: 'assets/emblemas/Chifre_cinza.webp'),
-  incomum(label: 'Incomum', horn: 'assets/emblemas/Chifre_verde.webp'),
-  raro(label: 'Raro', horn: 'assets/emblemas/Chifre_Azul.webp'),
-  mitico(label: 'Mítico', horn: 'assets/emblemas/Chifre_Roxa.webp'),
-  lendario(label: 'Lendário', horn: 'assets/emblemas/Chifre_dourado.webp'),
-  unico(label: 'Único', horn: 'assets/emblemas/Chifre_Vermelho.webp');
+  comum(label: 'Comum'),
+  incomum(label: 'Incomum'),
+  raro(label: 'Raro'),
+  mitico(label: 'Mítico'),
+  lendario(label: 'Lendário'),
+  unico(label: 'Único');
 
-  const RarityEmblema({required this.label, required this.horn});
+  const RarityEmblema({required this.label});
 
   final String label;
-  final String horn;
 }
 
 class Emblema {
