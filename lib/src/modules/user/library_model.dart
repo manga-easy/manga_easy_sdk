@@ -39,7 +39,7 @@ class LibraryModel {
   });
 
   LibraryModel.fromJson(Map<String, dynamic> json)
-      : id = json['\$id'] ?? json['id'],
+      : id = json['\$id'] ?? json['id'] ?? json['_uid'],
         idHost = json['idHost'],
         uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
         idUser = json['idUser']?.toString() ?? '',
