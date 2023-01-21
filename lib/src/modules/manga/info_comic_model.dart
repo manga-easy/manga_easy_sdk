@@ -10,10 +10,9 @@ class InfoComicModel {
   String sinopse;
   double ratio;
   String scans;
-  int dateUp;
-  int dateMade;
+  int updatedAt;
+  int createdAt;
   String generos;
-  bool isNotAtualiza;
   bool isAdult;
 
   InfoComicModel({
@@ -27,47 +26,44 @@ class InfoComicModel {
     required this.sinopse,
     required this.ratio,
     required this.scans,
-    required this.dateUp,
-    required this.dateMade,
+    required this.updatedAt,
+    required this.createdAt,
     required this.generos,
-    required this.isNotAtualiza,
     required this.isAdult,
   });
 
   InfoComicModel.fromJson(Map<String, dynamic> json)
       : name = json['name'],
-        id = json['\$id'],
+        id = json['_id'],
         uniqueid = json['uniqueid'],
-        ultimoCap = json['ultimoCap'],
-        totalViews = json['totalViews'],
+        ultimoCap = json['ultimo_cap'],
+        totalViews = json['total_views'],
         autor = json['autor'],
         thumb = json['thumb'],
         sinopse = json['sinopse'],
         ratio = json['ratio'] * 0.0,
         scans = json['scans'],
-        dateUp = json['dateUp'],
-        dateMade = json['dateMade'],
-        isAdult = json['isAdult'] ?? false,
-        isNotAtualiza = json['isNotAtualiza'] ?? false,
+        updatedAt = json['updated_at'],
+        createdAt = json['created_at'],
+        isAdult = json['is_adult'] ?? false,
         generos = json['generos'];
 
   Map<String, dynamic> toJson() {
     return {
       'name': name,
-      '\$id': id,
+      '_id': id,
       'uniqueid': uniqueid,
-      'ultimoCap': ultimoCap,
-      'totalViews': totalViews,
+      'ultimo_cap': ultimoCap,
+      'total_views': totalViews,
       'autor': autor,
       'thumb': thumb,
       'sinopse': sinopse,
       'ratio': ratio,
       'scans': scans,
-      'dateUp': dateUp,
-      'isNotAtualiza': isNotAtualiza,
-      'dateMade': dateMade,
+      'updated_at': updatedAt,
+      'created_at': createdAt,
       'generos': generos,
-      'isAdult': isAdult,
+      'is_adult': isAdult,
     };
   }
 }
