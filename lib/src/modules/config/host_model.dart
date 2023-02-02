@@ -9,6 +9,7 @@ class HostModel {
   String host;
   HostStatus status;
   String interstitialAdUnitId;
+  bool isbeta;
 
   HostModel({
     this.id,
@@ -18,6 +19,7 @@ class HostModel {
     required this.status,
     required this.interstitialAdUnitId,
     required this.idHost,
+    required this.isbeta,
   });
 
   HostModel.fromJson(Map<String, dynamic> json)
@@ -26,6 +28,7 @@ class HostModel {
         order = json['order'],
         status = HostStatus.getStatus(json['status']),
         idHost = json['idHost'],
+        isbeta = json['isbeta'] ?? false,
         interstitialAdUnitId = json['interstitialAdUnitId'],
         host = json['host'];
 
@@ -34,6 +37,7 @@ class HostModel {
         order = -1,
         status = HostStatus.disable,
         idHost = -1,
+        isbeta = false,
         interstitialAdUnitId = '',
         host = '';
 
@@ -45,6 +49,7 @@ class HostModel {
       'host': host,
       'order': order,
       'idHost': idHost,
+      'isbeta': isbeta,
       'interstitialAdUnitId': interstitialAdUnitId,
     };
   }
