@@ -15,4 +15,5 @@ class Global {
   static DateTime? ultimaSincronizacao;
   static String buildNumber = '';
   static String version = '';
+  static String? sessionId;
 }
