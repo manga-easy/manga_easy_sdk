@@ -13,7 +13,7 @@ class Historico {
   int updatedAt;
   int createdAt;
   bool isDeleted;
-  List chapterLidos;
+  List<String> chapterLidos;
   bool isSync;
 
   Historico({
@@ -57,15 +57,21 @@ class Historico {
     };
   }
 
-  static validaDatatime(data) {
+  static int validaDatatime(data) {
     if (data == null || data is DateTime) {
       return DateTime.now().millisecondsSinceEpoch;
     }
     return data;
   }
 
-  static validaChaprterLido(data) {
-    if (data == null || data is String) {
+  static List<String> validaChaprterLido(data) {
+    if (data is String) {
+      data = data.replaceFirst('[', '');
+      data = data.replaceFirst(']', '');
+      data = data.replaceAll('"', '');
+      return data.split(',');
+    }
+    if (data == null) {
       return [];
     }
     return data;
