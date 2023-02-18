@@ -74,7 +74,7 @@ class Historico {
     if (data == null) {
       return [];
     }
-    return data;
+    return data.map<String>((e) => e.toString()).toList();
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {
