@@ -48,7 +48,7 @@ class Historico {
       'updatedAt': updatedAt,
       'isDeleted': isDeleted,
       'uniqueid': uniqueid,
-      'manga': j.json.encode(manga),
+      'manga': j.json.encode(manga.toJson()),
       'capAtual': capAtual != null ? j.json.encode(capAtual) : null,
       'createdAt': createdAt,
       'isSync': isSync,
