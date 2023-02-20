@@ -31,7 +31,7 @@ class Manga {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['\$id'] = id;
     data['uniqueid'] = uniqueid;
-    data['title'] = title;
+    data['title'] = Helps.removeASCII(title);
     data['href'] = href;
     data['capa'] = capa;
     data['idHost'] = idHost;
