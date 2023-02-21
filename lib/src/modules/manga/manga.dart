@@ -19,7 +19,7 @@ class Manga {
   Manga.fromJson(dynamic json)
       : id = json['\$id'],
         title = json['title'],
-        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['title']),
+        uniqueid = json['uniqueid'] ?? Helps.removeUnicode(json['title']),
         href = json['href'],
         idHost = json['idHost'] ??
             Helps.retornaIdHost(
@@ -31,7 +31,7 @@ class Manga {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['\$id'] = id;
     data['uniqueid'] = uniqueid;
-    data['title'] = Helps.removeASCII(title);
+    data['title'] = Helps.removeUnicode(title);
     data['href'] = href;
     data['capa'] = capa;
     data['idHost'] = idHost;

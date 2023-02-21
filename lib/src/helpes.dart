@@ -45,11 +45,6 @@ class Helps {
     return value;
   }
 
-  // remove todos os caracteres sem ser ASCII menos o espaço
-  static String removeASCII(String text) {
-    return text.replaceAll(RegExp(r"[^\s\w]"), '');
-  }
-
   static String capitalize(String string) {
     return "${string[0].toUpperCase()}${string.substring(1).toLowerCase()}";
   }

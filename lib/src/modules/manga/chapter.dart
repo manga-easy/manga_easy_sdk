@@ -32,8 +32,8 @@ class Chapter {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['date'] = Helps.removeASCII(date);
-    data['title'] = Helps.removeASCII(title);
+    data['date'] = Helps.removeUnicode(date);
+    data['title'] = Helps.removeUnicode(title);
     data['number'] = number;
     data['href'] = href;
     data['imagens'] = imagens.map((v) => v.toJson()).toList();
