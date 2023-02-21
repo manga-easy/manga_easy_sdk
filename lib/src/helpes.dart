@@ -27,7 +27,7 @@ class Helps {
   }
 
   static String removeUnicode(String id) {
-    var simbolos = ['卍', '’', '–'];
+    var simbolos = ['卍', '’', '–', "'"];
     for (var item in simbolos) {
       id = id.replaceAll(item, '');
     }
