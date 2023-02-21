@@ -33,7 +33,7 @@ class Chapter {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['date'] = Helps.removeASCII(date);
-    data['title'] = title;
+    data['title'] = Helps.removeASCII(title);
     data['number'] = number;
     data['href'] = href;
     data['imagens'] = imagens.map((v) => v.toJson()).toList();
