@@ -19,8 +19,8 @@ class Chapter {
 
   Chapter.fromJson(dynamic json)
       : id = json['id'],
-        title = json['title'],
-        date = json['date'] ?? "",
+        title = Helps.removeUnicode(json['title']),
+        date = Helps.removeUnicode(json['date'] ?? ""),
         number = validateNumber(json['number']),
         imagens = json['imagens'] != null
             ? json['imagens']
@@ -32,8 +32,8 @@ class Chapter {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['date'] = Helps.removeUnicode(date);
-    data['title'] = Helps.removeUnicode(title);
+    data['date'] = date;
+    data['title'] = title;
     data['number'] = number;
     data['href'] = href;
     data['imagens'] = imagens.map((v) => v.toJson()).toList();
