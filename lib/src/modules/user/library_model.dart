@@ -41,7 +41,7 @@ class LibraryModel {
   LibraryModel.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'] ?? json['_uid'],
         idHost = json['idHost'],
-        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
+        uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['idManga']),
         idUser = json['idUser']?.toString() ?? '',
         updatedAt = validateUpdatedAt(json),
         isDeleted = validateIsDeleted(json),

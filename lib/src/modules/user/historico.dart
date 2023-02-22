@@ -30,7 +30,7 @@ class Historico {
 
   Historico.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'] ?? json['_uid'],
-        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
+        uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['idManga']),
         capAtual = json['capAtual'] != null
             ? Chapter.fromJson(Helps.decode(json['capAtual']))
             : null,
@@ -109,7 +109,7 @@ class Historico {
       capa: '',
       href: '',
       uniqueid: Helps.convertUniqueid(json['idManga']),
-      title: json['idManga'],
+      title: Helps.removeUnicode(json['idManga']),
       idHost: 0,
     );
   }
