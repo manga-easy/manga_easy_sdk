@@ -18,7 +18,7 @@ class Manga {
 
   Manga.fromJson(dynamic json)
       : id = json['\$id'],
-        title = Helps.removeUnicode(json['title']),
+        title = Helps.removeASCII(json['title']),
         uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['title']),
         href = json['href'],
         idHost = json['idHost'] ??

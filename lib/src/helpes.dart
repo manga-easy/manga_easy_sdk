@@ -26,12 +26,18 @@ class Helps {
     return url;
   }
 
+  @Deprecated('Use [removeASCII]')
   static String removeUnicode(String id) {
-    var simbolos = ['卍', '’', '–', "'", "\n"];
+    var simbolos = ['卍', '’', '–', "'"];
     for (var item in simbolos) {
       id = id.replaceAll(item, '');
     }
     return id;
+  }
+
+  // remove todos os caracteres sem ser ASCII menos o espaço e o • -
+  static String removeASCII(String text) {
+    return text.replaceAll(RegExp(r"[^\s\w •-]"), '');
   }
 
   static String convertUniqueid(String manga) {
