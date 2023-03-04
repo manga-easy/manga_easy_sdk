@@ -37,10 +37,19 @@ class Helps {
 
   // remove todos os caracteres sem ser ASCII menos o espaço e o • -
   static String removeASCII(String text) {
-    return text.replaceAll(RegExp(r"[^\s\w •-]"), '');
+    return text.replaceAll(RegExp(r'[^\s\w •-.]'), '');
   }
 
   static String convertUniqueid(String manga) {
+    final termos = [
+      '(br)',
+      'br',
+      'color',
+      'pt-br',
+    ];
+    for (var item in termos) {
+      manga = manga.replaceAll(item, '');
+    }
     return manga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
   }
 
