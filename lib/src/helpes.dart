@@ -28,7 +28,7 @@ class Helps {
 
   @Deprecated('Use [removeASCII]')
   static String removeUnicode(String id) {
-    var simbolos = ['卍', '’', '–', "'"];
+    var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
     for (var item in simbolos) {
       id = id.replaceAll(item, '');
     }
@@ -37,7 +37,11 @@ class Helps {
 
   // remove todos os caracteres sem ser ASCII menos o espaço e o • -
   static String removeASCII(String text) {
-    return text.replaceAll(RegExp(r'[^\s\w •-.]'), '');
+    var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
+    for (var item in simbolos) {
+      text = text.replaceAll(item, '');
+    }
+    return text;
   }
 
   static String convertUniqueid(String manga) {
