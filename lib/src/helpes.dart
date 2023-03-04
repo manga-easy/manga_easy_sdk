@@ -52,7 +52,7 @@ class Helps {
       'pt-br',
     ];
     for (var item in termos) {
-      manga = manga.replaceAll(item, '');
+      manga = manga.replaceAll(item.toLowerCase(), '');
     }
     return manga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
   }
