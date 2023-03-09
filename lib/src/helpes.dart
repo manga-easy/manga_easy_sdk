@@ -52,14 +52,15 @@ class Helps {
       'pt-br',
     ];
     for (var item in termos) {
-      manga = manga.replaceAll(item.toLowerCase(), '');
+      manga = manga.replaceAll(item.toUpperCase(), '');
+      manga = manga.replaceAll(item, '');
     }
     return manga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
   }
 
   static decode(value) {
     if (value is String) {
-      return json.decode(value.replaceAll('\n', ''));
+      return json.decode(value);
     }
     return value;
   }

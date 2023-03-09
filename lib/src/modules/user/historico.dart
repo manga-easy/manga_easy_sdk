@@ -109,7 +109,7 @@ class Historico {
       capa: '',
       href: '',
       uniqueid: Helps.convertUniqueid(json['idManga']),
-      title: Helps.removeASCII(json['idManga']),
+      title: json['idManga'],
       idHost: 0,
     );
   }

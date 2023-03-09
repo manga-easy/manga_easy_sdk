@@ -19,8 +19,8 @@ class Chapter {
 
   Chapter.fromJson(dynamic json)
       : id = json['id'],
-        title = Helps.removeASCII(json['title']),
-        date = Helps.removeASCII(json['date'] ?? ""),
+        title = json['title'],
+        date = json['date'] ?? "",
         number = validateNumber(json['number']),
         imagens = json['imagens'] != null
             ? json['imagens']
