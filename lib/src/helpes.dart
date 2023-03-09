@@ -51,8 +51,8 @@ class Helps {
       'color',
       'pt-br',
     ];
+    manga = manga.toLowerCase();
     for (var item in termos) {
-      manga = manga.replaceAll(item.toUpperCase(), '');
       manga = manga.replaceAll(item, '');
     }
     return manga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
