@@ -60,7 +60,7 @@ class Helps {
 
   static decode(value) {
     if (value is String) {
-      return json.decode(value);
+      return json.decode(value.replaceAll('\n', ''));
     }
     return value;
   }
