@@ -82,27 +82,18 @@ class LibraryModel {
     if (json['isDeleted'] == 0) {
       return false;
     }
-    if (json['isSync'] != null) {
-      return json['isSync'];
+    if (json['isDeleted'] != null) {
+      return json['isDeleted'];
     }
 
     return false;
   }
 
   static bool validateIsSync(Map<String, dynamic> json) {
-    if (json['isDeleted'] == 1) {
-      return true;
-    }
-    if (json['isDeleted'] == 0) {
-      return false;
-    }
-    if (json['isDeleted'] != null) {
-      return json['isDeleted'];
+    if (json['isSync'] != null) {
+      return json['isSync'];
     }
 
-    if (json['deletado'] != null) {
-      return json['deletado'];
-    }
     return false;
   }
 
