@@ -16,4 +16,5 @@ class Global {
   static String buildNumber = '';
   static String version = '';
   static String? jwt;
+  static bool filterContentOver18 = false;
 }

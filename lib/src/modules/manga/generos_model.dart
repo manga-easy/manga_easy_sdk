@@ -1,3 +1,5 @@
+import 'package:manga_easy_sdk/manga_easy_sdk.dart';
+
 class GenerosModel {
   String? id;
   String imagem;
@@ -42,6 +44,9 @@ class GenerosModel {
       } else {
         aura.add(GenerosModel.fromJson(item));
       }
+    }
+    if (Global.filterContentOver18) {
+      aura.removeWhere((element) => element.codigo == 'adulto');
     }
     aura.sort((a, b) => a.codigo.compareTo(b.codigo));
     return aura;
