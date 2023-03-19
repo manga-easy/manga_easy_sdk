@@ -47,8 +47,7 @@ class Helps {
   static String convertUniqueid(String manga) {
     final termos = [
       '(br)',
-      'br',
-      'color',
+      '(color)',
       'pt-br',
     ];
     manga = manga.toLowerCase();

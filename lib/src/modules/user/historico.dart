@@ -57,6 +57,10 @@ class Historico {
     };
   }
 
+  bool isChapterLido(String chapter) {
+    return chapterLidos.contains(chapter.trim());
+  }
+
   static int validaDatatime(data) {
     if (data == null || data is DateTime) {
       return DateTime.now().millisecondsSinceEpoch;
@@ -69,12 +73,12 @@ class Historico {
       data = data.replaceFirst('[', '');
       data = data.replaceFirst(']', '');
       data = data.replaceAll('"', '');
-      return data.split(',');
+      return data.split(',').map((e) => e.toString().trim()).toList();
     }
     if (data == null) {
       return [];
     }
-    return data.map<String>((e) => e.toString()).toList();
+    return data.map<String>((e) => e.toString().trim()).toList();
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {
