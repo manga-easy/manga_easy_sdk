@@ -41,12 +41,12 @@ class LibraryModel {
   LibraryModel.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'] ?? json['_uid'],
         idHost = json['idHost'],
-        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
+        uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['idManga']),
         idUser = json['idUser']?.toString() ?? '',
         updatedAt = validateUpdatedAt(json),
         isDeleted = validateIsDeleted(json),
         status = validateStatus(json['status']),
-        isSync = json['isSync'] ?? false,
+        isSync = validateIsSync(json),
         manga = validateManga(json),
         createdAt = validateCreatedAt(json);
 
@@ -76,13 +76,24 @@ class LibraryModel {
   }
 
   static bool validateIsDeleted(Map<String, dynamic> json) {
+    if (json['isDeleted'] == 1) {
+      return true;
+    }
+    if (json['isDeleted'] == 0) {
+      return false;
+    }
     if (json['isDeleted'] != null) {
       return json['isDeleted'];
     }
 
-    if (json['deletado'] != null) {
-      return json['deletado'];
+    return false;
+  }
+
+  static bool validateIsSync(Map<String, dynamic> json) {
+    if (json['isSync'] != null) {
+      return json['isSync'];
     }
+
     return false;
   }
 

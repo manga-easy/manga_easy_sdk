@@ -13,7 +13,7 @@ class Historico {
   int updatedAt;
   int createdAt;
   bool isDeleted;
-  List chapterLidos;
+  List<String> chapterLidos;
   bool isSync;
 
   Historico({
@@ -30,7 +30,7 @@ class Historico {
 
   Historico.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'] ?? json['_uid'],
-        uniqueid = json['uniqueid'] ?? Helps.convertUniqueid(json['idManga']),
+        uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['idManga']),
         capAtual = json['capAtual'] != null
             ? Chapter.fromJson(Helps.decode(json['capAtual']))
             : null,
@@ -48,7 +48,7 @@ class Historico {
       'updatedAt': updatedAt,
       'isDeleted': isDeleted,
       'uniqueid': uniqueid,
-      'manga': j.json.encode(manga),
+      'manga': j.json.encode(manga.toJson()),
       'capAtual': capAtual != null ? j.json.encode(capAtual) : null,
       'createdAt': createdAt,
       'isSync': isSync,
@@ -57,18 +57,28 @@ class Historico {
     };
   }
 
-  static validaDatatime(data) {
+  bool isChapterLido(String chapter) {
+    return chapterLidos.contains(chapter.trim());
+  }
+
+  static int validaDatatime(data) {
     if (data == null || data is DateTime) {
       return DateTime.now().millisecondsSinceEpoch;
     }
     return data;
   }
 
-  static validaChaprterLido(data) {
-    if (data == null || data is String) {
+  static List<String> validaChaprterLido(data) {
+    if (data is String) {
+      data = data.replaceFirst('[', '');
+      data = data.replaceFirst(']', '');
+      data = data.replaceAll('"', '');
+      return data.split(',').map((e) => e.toString().trim()).toList();
+    }
+    if (data == null) {
       return [];
     }
-    return data;
+    return data.map<String>((e) => e.toString().trim()).toList();
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {

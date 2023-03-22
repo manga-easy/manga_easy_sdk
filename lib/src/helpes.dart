@@ -26,21 +26,40 @@ class Helps {
     return url;
   }
 
+  @Deprecated('Use [removeASCII]')
   static String removeUnicode(String id) {
-    var simbolos = ['卍', '’', '–'];
+    var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
     for (var item in simbolos) {
       id = id.replaceAll(item, '');
     }
     return id;
   }
 
+  // remove todos os caracteres sem ser ASCII menos o espaço e o • -
+  static String removeASCII(String text) {
+    var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
+    for (var item in simbolos) {
+      text = text.replaceAll(item, '');
+    }
+    return text;
+  }
+
   static String convertUniqueid(String manga) {
+    final termos = [
+      '(br)',
+      '(color)',
+      'pt-br',
+    ];
+    manga = manga.toLowerCase();
+    for (var item in termos) {
+      manga = manga.replaceAll(item, '');
+    }
     return manga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
   }
 
   static decode(value) {
     if (value is String) {
-      return json.decode(value);
+      return json.decode(value.replaceAll('\n', ''));
     }
     return value;
   }

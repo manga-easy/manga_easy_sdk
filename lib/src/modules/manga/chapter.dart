@@ -1,4 +1,4 @@
-import 'image_chapters.dart';
+import 'package:manga_easy_sdk/manga_easy_sdk.dart';
 
 class Chapter {
   String? id;
@@ -23,7 +23,9 @@ class Chapter {
         date = json['date'] ?? "",
         number = validateNumber(json['number']),
         imagens = json['imagens'] != null
-            ? json['imagens'].map<ImageChapter>((e) => ImageChapter.fromJson(e)).toList()
+            ? json['imagens']
+                .map<ImageChapter>((e) => ImageChapter.fromJson(e))
+                .toList()
             : [],
         href = json['href'];
 

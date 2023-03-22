@@ -15,5 +15,6 @@ class Global {
   static DateTime? ultimaSincronizacao;
   static String buildNumber = '';
   static String version = '';
-  static String? sessionId;
+  static String? jwt;
+  static bool filterContentOver18 = false;
 }
