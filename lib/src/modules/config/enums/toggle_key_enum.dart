@@ -1,4 +1,7 @@
 enum ToggleKey {
+  currentBuildApp(136),
+  urlRecovery('https://manga-easy.lucas-cm.com.br/RecorverConfirmation'),
+  urlAuth("https://auth.lucas-cm.com.br/v1"),
   urlAppwrite("https://app.lucas-cm.com.br/v1"),
   linkDiscord('https://discord.gg/aK6GVd2uH2'),
   nivelAtivo(false),
