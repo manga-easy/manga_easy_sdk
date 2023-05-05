@@ -90,4 +90,17 @@ class Helps {
     if (v.contains('niadd') || v.contains('nineanime')) return 9;
     return 6;
   }
+
+  static List<String> convertStringToList(data) {
+    if (data is String) {
+      data = data.replaceFirst('[', '');
+      data = data.replaceFirst(']', '');
+      data = data.replaceAll('"', '');
+      return data.split(',').map((e) => e.toString().trim()).toList();
+    }
+    if (data == null) {
+      return [];
+    }
+    return data.map<String>((e) => e.toString().trim()).toList();
+  }
 }
