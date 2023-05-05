@@ -19,7 +19,6 @@ class Emblema {
   static String get collectionId => '61b11b625f4b7';
   String? id;
   String name;
-  int timeCria;
   RarityEmblema rarity;
   String description;
   double percent;
@@ -29,11 +28,12 @@ class Emblema {
   bool disponivel;
   String categoria;
   String type;
+  int createAt;
+  int updateAt;
 
   Emblema({
     this.id,
     required this.name,
-    required this.timeCria,
     required this.rarity,
     required this.description,
     required this.percent,
@@ -43,38 +43,9 @@ class Emblema {
     required this.disponivel,
     required this.type,
     required this.categoria,
+    required this.createAt,
+    required this.updateAt,
   });
-
-  Emblema.fromJson(dynamic json)
-      : id = json['\$id'],
-        name = json['name'],
-        timeCria = json['time_cria'],
-        rarity = validaRarity(json['rarity']),
-        description = json['description'],
-        percent = json['percent'],
-        url = json['url'],
-        adsOff = json['adsOff'],
-        disponivel = json['disponivel'],
-        type = json['type'],
-        categoria = json['categoria'] ?? '',
-        benefits = json['benefits'].map<String>((e) => e.toString()).toList();
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['\$id'] = id;
-    data['name'] = name;
-    data['time_cria'] = timeCria;
-    data['rarity'] = rarity.name;
-    data['description'] = description;
-    data['percent'] = percent;
-    data['url'] = url;
-    data['benefits'] = benefits;
-    data['adsOff'] = adsOff;
-    data['disponivel'] = disponivel;
-    data['type'] = type;
-    data['categoria'] = categoria;
-    return data;
-  }
 
   static RarityEmblema validaRarity(String rarity) {
     var index = RarityEmblema.values.indexWhere(
@@ -90,7 +61,8 @@ class Emblema {
 
   Emblema.empty()
       : name = '',
-        timeCria = DateTime.now().millisecondsSinceEpoch,
+        createAt = DateTime.now().millisecondsSinceEpoch,
+        updateAt = DateTime.now().millisecondsSinceEpoch,
         rarity = RarityEmblema.comum,
         description = '',
         percent = 0.1,
