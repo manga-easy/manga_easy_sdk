@@ -22,10 +22,9 @@ class User {
   User.fromJson(dynamic json)
       : id = json['\$id'],
         name = json['name'],
-        registration = json['registration'] ?? json['registration'].toString(),
+        registration = json['registration'].toString(),
         status = json['status'] is bool ? json['status'] : true,
-        passwordUpdate =
-            json['passwordUpdate'] ?? json['passwordUpdate'].toString(),
+        passwordUpdate = json['passwordUpdate'].toString(),
         email = json['email'],
         prefs = Prefs.fromJson(json['prefs']['data'] ?? json['prefs']),
         emailVerification = json['emailVerification'];
