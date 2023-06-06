@@ -37,7 +37,7 @@ class Historico {
         idUser = json['idUser'] ?? '',
         updatedAt = validateUpdatedAt(json),
         isDeleted = validateIsDeleted(json),
-        chapterLidos = validaChaprterLido(json['chapterLidos']),
+        chapterLidos = Helps.convertStringToList(json['chapterLidos']),
         manga = validateManga(json),
         isSync = json['isSync'] ?? false,
         createdAt = validateCreatedAt(json);
@@ -66,19 +66,6 @@ class Historico {
       return DateTime.now().millisecondsSinceEpoch;
     }
     return data;
-  }
-
-  static List<String> validaChaprterLido(data) {
-    if (data is String) {
-      data = data.replaceFirst('[', '');
-      data = data.replaceFirst(']', '');
-      data = data.replaceAll('"', '');
-      return data.split(',').map((e) => e.toString().trim()).toList();
-    }
-    if (data == null) {
-      return [];
-    }
-    return data.map<String>((e) => e.toString().trim()).toList();
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {

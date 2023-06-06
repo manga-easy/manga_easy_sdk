@@ -1,3 +1,5 @@
+import 'package:manga_easy_sdk/manga_easy_sdk.dart';
+
 class NotificacaoCapitulos {
   static String get collectionId => '6240955e6c241a37e6b2';
   String? id;
@@ -32,10 +34,11 @@ class NotificacaoCapitulos {
 
   NotificacaoCapitulos.fromJson(Map<String, dynamic> json)
       : id = json['\$id'],
-        uniqueid = json['uniqueid'],
+        uniqueid = Helps.convertUniqueid(json['uniqueid']),
         idHost = json['idHost'],
         nomeManga = json['nomeManga'],
-        capitulos = (json['capitulos'] as List).map((e) => e.toString()).toList(),
+        capitulos =
+            (json['capitulos'] as List).map((e) => e.toString()).toList(),
         datetime = json['datetime'],
         identific = json['identific'];
 }

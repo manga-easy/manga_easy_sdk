@@ -30,11 +30,12 @@ export 'src/modules/enquete/enquete_model.dart';
 export 'src/modules/enquete/question_model.dart';
 export 'src/modules/about/role_team_model.dart';
 export 'src/modules/about/team_model.dart';
-export 'src/modules/config/config_model.dart';
 export 'src/modules/config/host_model.dart';
 export 'src/modules/config/block_list_model.dart';
 export 'src/modules/reviews/review_model.dart';
 export 'src/modules/config/enums/host_status_enum.dart';
 export 'src/modules/core/global.dart';
+export 'src/modules/config/toggle_config_entity.dart';
+export 'src/modules/config/enums/toggle_key_enum.dart';
 
 // TODO: Export any libraries intended for clients of this package.

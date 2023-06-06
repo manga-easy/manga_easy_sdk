@@ -1,9 +1,9 @@
 class User {
   String? id;
   String name;
-  int registration;
+  String registration;
   bool status;
-  int passwordUpdate;
+  String passwordUpdate;
   String email;
   bool emailVerification;
   Prefs prefs;
@@ -22,9 +22,9 @@ class User {
   User.fromJson(dynamic json)
       : id = json['\$id'],
         name = json['name'],
-        registration = json['registration'],
+        registration = json['registration'].toString(),
         status = json['status'] is bool ? json['status'] : true,
-        passwordUpdate = json['passwordUpdate'],
+        passwordUpdate = json['passwordUpdate'].toString(),
         email = json['email'],
         prefs = Prefs.fromJson(json['prefs']['data'] ?? json['prefs']),
         emailVerification = json['emailVerification'];
