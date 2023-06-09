@@ -37,8 +37,7 @@ class NotificacaoCapitulos {
         uniqueid = Helps.convertUniqueid(json['uniqueid']),
         idHost = json['idHost'],
         nomeManga = json['nomeManga'],
-        capitulos =
-            (json['capitulos'] as List).map((e) => e.toString()).toList(),
+        capitulos = Helps.convertStringToList(json['capitulos']),
         datetime = json['datetime'],
         identific = json['identific'];
 }
