@@ -44,17 +44,26 @@ class Helps {
     return text;
   }
 
-  static String convertUniqueid(String manga) {
+  // Função responsável por converter um título de manga em um identificador único
+  // Removemos termos específicos, convertemos para letras minúsculas e removemos caracteres especiais
+  static String convertUniqueid(String titleManga) {
+    // Lista de termos a serem removidos do título do manga
     final termos = [
       '(br)',
       '(color)',
       'pt-br',
     ];
-    manga = manga.toLowerCase();
+
+    // Converter o título do manga para letras minúsculas
+    titleManga = titleManga.toLowerCase();
+
+    // Remover termos específicos do título do manga
     for (var item in termos) {
-      manga = manga.replaceAll(item, '');
+      titleManga = titleManga.replaceAll(item, '');
     }
-    return manga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
+
+    // Remover caracteres especiais do título do manga
+    return titleManga.replaceAll(RegExp('[^A-Za-z0-9]'), '');
   }
 
   static decode(value) {
@@ -100,6 +109,9 @@ class Helps {
     }
     if (data == null) {
       return [];
+    }
+    if (data.runtimeType.toString() == 'Blob') {
+      return data.toString().split(',');
     }
     return data.map<String>((e) => e.toString().trim()).toList();
   }
