@@ -90,6 +90,13 @@ class LibraryModel {
   }
 
   static bool validateIsSync(Map<String, dynamic> json) {
+    if (json['isSync'] == 1) {
+      return true;
+    }
+    if (json['isSync'] == 0) {
+      return false;
+    }
+
     if (json['isSync'] != null) {
       return json['isSync'];
     }
