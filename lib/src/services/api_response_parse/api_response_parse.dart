@@ -1,3 +1,4 @@
+import 'package:manga_easy_sdk/src/services/api_response_parse/api_erros/api_error_business.dart';
 import 'package:manga_easy_sdk/src/services/api_response_parse/api_erros/api_forbidden_error.dart';
 import 'package:manga_easy_sdk/src/services/api_response_parse/api_erros/api_unauthenticated_error.dart';
 import 'package:manga_easy_sdk/src/services/api_response_parse/api_erros/api_unknown_error.dart';
@@ -12,7 +13,7 @@ class ApiResponseParser {
     final result = ResultEntity.fromJson(response);
 
     if (result.status == 'ERROR') {
-      throw Exception(result.message);
+      throw ApiErrorBusiness(message: result.message);
     }
     return result;
   }
