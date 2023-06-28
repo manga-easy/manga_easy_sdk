@@ -16,16 +16,6 @@ class Helps {
     return false;
   }
 
-  static String ajustaPath(String url) {
-    if (url.contains('/')) url = url.replaceFirst('/', '');
-    if (url.contains('/')) url = url.replaceAll('/', ' > ');
-    for (var i = 0; i < 30; i++) {
-      if (url.contains('[$i]')) url = url.replaceAll('[$i]', '');
-    }
-
-    return url;
-  }
-
   @Deprecated('Use [removeASCII]')
   static String removeUnicode(String id) {
     var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
