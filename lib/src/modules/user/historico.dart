@@ -4,12 +4,13 @@ import '../manga/chapter.dart';
 import '../manga/manga.dart';
 
 class Historico {
-  static String get collectionId => '617b5e10b202a';
   String? id;
   String uniqueid;
   Manga manga;
   String idUser;
+  @Deprecated("User currentChapter 0.13.0 -> 0.15.0")
   Chapter? capAtual;
+  String? currentChapter;
   int updatedAt;
   int createdAt;
   bool isDeleted;
@@ -26,14 +27,15 @@ class Historico {
     required this.chapterLidos,
     required this.uniqueid,
     required this.isSync,
+    this.currentChapter,
   });
 
   Historico.fromJson(Map<String, dynamic> json)
       : id = json['\$id'] ?? json['id'] ?? json['_uid'],
         uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['idManga']),
-        capAtual = json['capAtual'] != null
-            ? Chapter.fromJson(Helps.decode(json['capAtual']))
-            : null,
+        capAtual = convertJsonToChapter(json),
+        currentChapter =
+            json['currentChapter'] ?? convertJsonToChapter(json)?.title,
         idUser = json['idUser'] ?? '',
         updatedAt = validateUpdatedAt(json),
         isDeleted = validateIsDeleted(json),
@@ -54,6 +56,7 @@ class Historico {
       'isSync': isSync,
       'chapterLidos': chapterLidos,
       'idUser': idUser,
+      'currentChapter': currentChapter,
     };
   }
 
@@ -66,6 +69,12 @@ class Historico {
       return DateTime.now().millisecondsSinceEpoch;
     }
     return data;
+  }
+
+  static Chapter? convertJsonToChapter(Map<String, dynamic> json) {
+    return json['capAtual'] != null
+        ? Chapter.fromJson(Helps.decode(json['capAtual']))
+        : null;
   }
 
   static int validateUpdatedAt(Map<String, dynamic> json) {
