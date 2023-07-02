@@ -42,6 +42,7 @@ class Helps {
       '(br)',
       '(color)',
       'pt-br',
+      '(novel)',
     ];
 
     // Converter o título do manga para letras minúsculas
@@ -87,6 +88,7 @@ class Helps {
     if (v.contains('easy-scan')) return 7;
     if (v.contains('vulcannovel')) return 8;
     if (v.contains('niadd') || v.contains('nineanime')) return 9;
+    if (v.contains('goldenmangas')) return 10;
     return 6;
   }
 
