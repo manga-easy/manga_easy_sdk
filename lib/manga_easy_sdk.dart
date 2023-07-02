@@ -37,5 +37,6 @@ export 'src/modules/config/enums/host_status_enum.dart';
 export 'src/modules/core/global.dart';
 export 'src/modules/config/toggle_config_entity.dart';
 export 'src/modules/config/enums/toggle_key_enum.dart';
+export 'src/services/service_export.dart';
 
 // TODO: Export any libraries intended for clients of this package.
