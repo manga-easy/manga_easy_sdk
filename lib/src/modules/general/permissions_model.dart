@@ -1,24 +1,39 @@
 class Permissions {
-  static const String collectionId = '623f19fd634f690560fc';
-  String? id;
-  String userId;
-  int value;
-  Permissions({
+  final String? id;
+  final String userId;
+  final int value;
+  final int createdat;
+  final int updatedat;
+  const Permissions({
+    required this.createdat,
+    required this.updatedat,
     required this.userId,
     required this.value,
     this.id,
   });
 
-  Permissions.fromJson(Map<String, dynamic> json)
-      : userId = json['userId'],
-        value = json['value'],
-        id = json[r'$id'];
+  factory Permissions.empty() {
+    return Permissions(
+      createdat: 0,
+      updatedat: 0,
+      userId: '',
+      value: 0,
+    );
+  }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['userId'] = userId;
-    data['value'] = value;
-    data[r'$id'] = id;
-    return data;
+  Permissions copyWith({
+    String? id,
+    String? userId,
+    int? value,
+    int? createdat,
+    int? updatedat,
+  }) {
+    return Permissions(
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      value: value ?? this.value,
+      createdat: createdat ?? this.createdat,
+      updatedat: updatedat ?? this.updatedat,
+    );
   }
 }

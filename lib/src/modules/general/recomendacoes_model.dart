@@ -17,4 +17,15 @@ class RecomendacoesModel {
     required this.createdAt,
     required this.updatedAt,
   });
+
+  factory RecomendacoesModel.empty() {
+    return RecomendacoesModel(
+      title: '',
+      link: '',
+      uniqueid: 'uniqueid',
+      dataCria: DateTime.now().millisecondsSinceEpoch,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+      updatedAt: DateTime.now().millisecondsSinceEpoch,
+    );
+  }
 }
