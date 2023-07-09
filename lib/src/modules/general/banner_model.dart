@@ -1,6 +1,5 @@
 class BannerModel {
   String? id;
-  final String type;
   final String image;
   final String link;
   final int createdat;
@@ -10,7 +9,6 @@ class BannerModel {
     this.id,
     required this.image,
     required this.link,
-    required this.type,
     required this.createdat,
     required this.updatedat,
   });
@@ -19,7 +17,6 @@ class BannerModel {
     return BannerModel(
       image: '',
       link: '',
-      type: '',
       createdat: 0,
       updatedat: 0,
     );
@@ -35,7 +32,6 @@ class BannerModel {
   }) {
     return BannerModel(
       id: id ?? this.id,
-      type: type ?? this.type,
       image: image ?? this.image,
       link: link ?? this.link,
       createdat: createdat ?? this.createdat,
