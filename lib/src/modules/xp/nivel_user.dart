@@ -9,8 +9,8 @@ class NivelUser {
   final int minute;
   final String userId;
   final int timeUp;
-  final int createdat;
-  final int updatedat;
+  final int createdAt;
+  final int updatedAt;
 
   const NivelUser({
     this.id,
@@ -23,8 +23,8 @@ class NivelUser {
     required this.name,
     required this.total,
     required this.temporada,
-    required this.createdat,
-    required this.updatedat,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   NivelUser copyWith({
@@ -38,8 +38,8 @@ class NivelUser {
     int? minute,
     String? userId,
     int? timeUp,
-    int? createdat,
-    int? updatedat,
+    int? createdAt,
+    int? updatedAt,
   }) {
     return NivelUser(
       id: id ?? this.id,
@@ -52,8 +52,8 @@ class NivelUser {
       minute: minute ?? this.minute,
       userId: userId ?? this.userId,
       timeUp: timeUp ?? this.timeUp,
-      createdat: createdat ?? this.createdat,
-      updatedat: updatedat ?? this.updatedat,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 }
