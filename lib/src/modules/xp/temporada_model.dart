@@ -1,32 +1,40 @@
 class TemporadaModel {
-  static String get collectionId => '61e8bc42189b4';
-  String? id;
-  String nome;
-  int datainit;
-  int? datafim;
-  int number;
+  final String? id;
+  final String nome;
+  final int number;
+  final int createdat;
+  final int updatedat;
 
-  TemporadaModel({
-    required this.id,
-    required this.datafim,
-    required this.datainit,
+  const TemporadaModel({
+    this.id,
+    required this.createdat,
+    required this.updatedat,
     required this.nome,
     required this.number,
   });
-  TemporadaModel.fromJson(Map<String, dynamic> json)
-      : datafim = json['datafim'],
-        datainit = json['datainit'],
-        nome = json['nome'],
-        number = json['number'],
-        id = json['\$id'];
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['\$id'] = id;
-    data['datafim'] = datafim;
-    data['datainit'] = datainit;
-    data['number'] = number;
-    data['nome'] = nome;
-    return data;
+  factory TemporadaModel.empty() {
+    return TemporadaModel(
+      createdat: 0,
+      updatedat: 0,
+      nome: '',
+      number: 0,
+    );
+  }
+
+  TemporadaModel copyWith({
+    String? id,
+    String? nome,
+    int? number,
+    int? createdat,
+    int? updatedat,
+  }) {
+    return TemporadaModel(
+      id: id ?? this.id,
+      nome: nome ?? this.nome,
+      number: number ?? this.number,
+      createdat: createdat ?? this.createdat,
+      updatedat: updatedat ?? this.updatedat,
+    );
   }
 }

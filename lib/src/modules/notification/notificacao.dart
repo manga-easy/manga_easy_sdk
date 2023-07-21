@@ -17,4 +17,15 @@ class Notificacao {
     required this.createAt,
     required this.updateAt,
   });
+
+  factory Notificacao.empty() {
+    return Notificacao(
+      titulo: '',
+      menssege: '',
+      image: '',
+      dateMade: DateTime.now().millisecondsSinceEpoch,
+      createAt: DateTime.now().millisecondsSinceEpoch,
+      updateAt: DateTime.now().millisecondsSinceEpoch,
+    );
+  }
 }
