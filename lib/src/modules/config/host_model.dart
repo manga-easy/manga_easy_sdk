@@ -1,7 +1,6 @@
 import 'package:manga_easy_sdk/src/modules/config/enums/host_status_enum.dart';
 
 class HostModel {
-  static String get collectionId => '6228a4a974bc61d675d7';
   String? id;
   int idHost;
   int order;

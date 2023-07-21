@@ -1,3 +1,3 @@
 abstract class ApiError implements Exception {
-  abstract String message;
+  abstract final String message;
 }

@@ -1,9 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
 class Helps {
+  static String formetDateFromTimestap(int time) {
+    if (time.toString().length == 10) time *= 1000;
+    return DateFormat(null, 'pt_Br').format(
+      DateTime.fromMillisecondsSinceEpoch(
+        time,
+      ),
+    );
+  }
+
   static Future<bool> verificarConexao() async {
     try {
       final result = await InternetAddress.lookup('google.com');

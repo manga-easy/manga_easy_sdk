@@ -1,17 +1,18 @@
 class NivelUser {
-  static String get collectionId => '61b1215aa06cb';
-  String? id;
-  String name;
-  int total;
-  String temporada;
-  int lvl;
-  int timeCria;
-  int quantity;
-  int minute;
-  String userId;
-  int timeUp;
+  final String? id;
+  final String name;
+  final int total;
+  final String temporada;
+  final int lvl;
+  final int timeCria;
+  final int quantity;
+  final int minute;
+  final String userId;
+  final int timeUp;
+  final int createdAt;
+  final int updatedAt;
 
-  NivelUser({
+  const NivelUser({
     this.id,
     required this.timeCria,
     required this.lvl,
@@ -22,32 +23,37 @@ class NivelUser {
     required this.name,
     required this.total,
     required this.temporada,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
-  NivelUser.fromJson(dynamic json)
-      : id = json['\$id'],
-        timeCria = json['timeCria'],
-        lvl = json['lvl'],
-        quantity = json['quantity'],
-        userId = json['userId'],
-        timeUp = json['timeUp'],
-        name = json['name'] ?? '',
-        temporada = json['temporada'] ?? '',
-        total = json['total'] ?? 0,
-        minute = json['minute'];
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['\$id'] = id;
-    data['lvl'] = lvl;
-    data['timeCria'] = timeCria;
-    data['quantity'] = quantity;
-    data['userId'] = userId;
-    data['minute'] = minute;
-    data['timeUp'] = timeUp;
-    data['name'] = name;
-    data['temporada'] = temporada;
-    data['total'] = total;
-    return data;
+  NivelUser copyWith({
+    String? id,
+    String? name,
+    int? total,
+    String? temporada,
+    int? lvl,
+    int? timeCria,
+    int? quantity,
+    int? minute,
+    String? userId,
+    int? timeUp,
+    int? createdAt,
+    int? updatedAt,
+  }) {
+    return NivelUser(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      total: total ?? this.total,
+      temporada: temporada ?? this.temporada,
+      lvl: lvl ?? this.lvl,
+      timeCria: timeCria ?? this.timeCria,
+      quantity: quantity ?? this.quantity,
+      minute: minute ?? this.minute,
+      userId: userId ?? this.userId,
+      timeUp: timeUp ?? this.timeUp,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
   }
 }
