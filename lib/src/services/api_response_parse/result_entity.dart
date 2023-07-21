@@ -12,7 +12,7 @@ class ResultEntity {
   });
 
   ResultEntity.fromJson(Map<String, dynamic> map)
-      : total = map['total'],
+      : total = map['total'] ?? map['quant'],
         status = map['status'],
         data = (map['data'] as List)
             .map((e) => Map<String, dynamic>.from(e))
