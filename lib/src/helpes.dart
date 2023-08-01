@@ -80,9 +80,17 @@ class Helps {
   static void log(error) {
     var logger = Logger();
     try {
-      logger.e(error, null, error.stackTrace);
+      logger.e(
+        error.toString(),
+        error: error,
+        stackTrace: error.stackTrace,
+        time: DateTime.now(),
+      );
     } catch (e) {
-      logger.w(error, null);
+      logger.d(
+        error,
+        time: DateTime.now(),
+      );
     }
   }
 
