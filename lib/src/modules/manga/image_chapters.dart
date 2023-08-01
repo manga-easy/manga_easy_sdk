@@ -5,6 +5,7 @@ class ImageChapter {
   String src;
   String? path;
   TypeFonte tipo;
+  @Deprecated('Não será mais usado')
   int state;
 
   ImageChapter({required this.src, required this.state, required this.tipo});
