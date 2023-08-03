@@ -21,7 +21,7 @@ class DownloadEntity {
   });
 
   Status get status {
-    if (chapters.any((e) => e.status == Status.todo)) {
+    if (chapters.any((e) => e.status != Status.done)) {
       return Status.todo;
     }
     return Status.done;
