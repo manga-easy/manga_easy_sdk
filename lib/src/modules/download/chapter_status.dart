@@ -5,19 +5,27 @@ enum Status { todo, doing, paused, done, error }
 class ChapterStatus {
   final String uniqueid;
   final Chapter chapter;
+  final String? path;
   Status status;
 
-  ChapterStatus(this.chapter, this.status, this.uniqueid);
+  ChapterStatus({
+    required this.chapter,
+    required this.status,
+    required this.uniqueid,
+    this.path,
+  });
 
   ChapterStatus copyWith({
     String? uniqueid,
     Chapter? chapter,
     Status? status,
+    String? path,
   }) {
     return ChapterStatus(
-      chapter ?? this.chapter.copyWith(),
-      status ?? this.status,
-      uniqueid ?? this.uniqueid,
+      chapter: chapter ?? this.chapter.copyWith(),
+      status: status ?? this.status,
+      uniqueid: uniqueid ?? this.uniqueid,
+      path: path ?? this.path,
     );
   }
 }

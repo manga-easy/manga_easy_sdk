@@ -87,7 +87,7 @@ class Helps {
         time: DateTime.now(),
       );
     } catch (e) {
-      logger.d(
+      logger.w(
         error,
         time: DateTime.now(),
       );

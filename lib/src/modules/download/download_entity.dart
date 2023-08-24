@@ -1,11 +1,9 @@
 import 'package:manga_easy_sdk/manga_easy_sdk.dart';
-import 'package:manga_easy_sdk/src/modules/download/chapter_status.dart';
 
 class DownloadEntity {
   String? id;
   String uniqueid;
   String? idUser;
-  String folder;
   Manga manga;
   List<ChapterStatus> chapters;
   DateTime createAt;
@@ -16,7 +14,6 @@ class DownloadEntity {
     required this.idUser,
     required this.createAt,
     required this.manga,
-    required this.folder,
     required this.chapters,
   });
 
@@ -40,7 +37,6 @@ class DownloadEntity {
       id: id ?? this.id,
       uniqueid: uniqueid ?? this.uniqueid,
       idUser: idUser ?? this.idUser,
-      folder: folder ?? this.folder,
       manga: manga ?? this.manga,
       chapters: chapters ?? this.chapters,
       createAt: createAt ?? this.createAt,
