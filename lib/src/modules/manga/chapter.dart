@@ -1,14 +1,14 @@
 import 'package:manga_easy_sdk/manga_easy_sdk.dart';
 
 class Chapter {
-  String? id;
-  String title;
-  double number;
-  String href;
-  String date;
-  List<ImageChapter> imagens;
+  final String? id;
+  final String title;
+  final double number;
+  final String href;
+  final String date;
+  final List<ImageChapter> imagens;
 
-  Chapter({
+  const Chapter({
     required this.title,
     required this.href,
     required this.id,
@@ -45,5 +45,23 @@ class Chapter {
       return number;
     }
     return double.tryParse(number.toString()) ?? 0.0;
+  }
+
+  Chapter copyWith({
+    String? id,
+    String? title,
+    double? number,
+    String? href,
+    String? date,
+    List<ImageChapter>? imagens,
+  }) {
+    return Chapter(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      number: number ?? this.number,
+      href: href ?? this.href,
+      date: date ?? this.date,
+      imagens: imagens ?? this.imagens.toList(),
+    );
   }
 }
