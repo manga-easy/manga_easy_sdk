@@ -25,8 +25,6 @@ class LibraryEntity {
     required this.isSync,
   });
 
-     
-
   LibraryEntity copyWith({
     String? id,
     int? idHost,
@@ -52,6 +50,4 @@ class LibraryEntity {
       isSync: isSync ?? this.isSync,
     );
   }
-
-
 }
