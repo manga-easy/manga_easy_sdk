@@ -3,6 +3,7 @@ import '../../helpes.dart';
 import '../manga/chapter.dart';
 import '../manga/manga.dart';
 
+@Deprecated("Use HistoryEntity v0.15.0 > v0.18.0")
 class Historico {
   String? id;
   String uniqueid;

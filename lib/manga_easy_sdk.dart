@@ -42,4 +42,5 @@ export 'src/modules/download/download_entity.dart';
 export 'src/modules/download/chapter_status.dart';
 export 'src/app_url.dart';
 export 'src/modules/user/library_entity.dart';
+export 'src/modules/user/history_entity.dart';
 export 'src/modules/user/status_library_enum.dart';
