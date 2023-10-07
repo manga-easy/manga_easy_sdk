@@ -25,24 +25,6 @@ class Helps {
     return false;
   }
 
-  @Deprecated('Use [removeASCII]')
-  static String removeUnicode(String id) {
-    var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
-    for (var item in simbolos) {
-      id = id.replaceAll(item, '');
-    }
-    return id;
-  }
-
-  // remove todos os caracteres sem ser ASCII menos o espaço e o • -
-  static String removeASCII(String text) {
-    var simbolos = ['卍', '’', '–', "'", "\n", r"\s"];
-    for (var item in simbolos) {
-      text = text.replaceAll(item, '');
-    }
-    return text;
-  }
-
   // Função responsável por converter um título de manga em um identificador único
   // Removemos termos específicos, convertemos para letras minúsculas e removemos caracteres especiais
   static String convertUniqueid(String titleManga) {
@@ -51,7 +33,6 @@ class Helps {
       '(br)',
       '(color)',
       'pt-br',
-      '(novel)',
     ];
 
     // Converter o título do manga para letras minúsculas
@@ -92,21 +73,6 @@ class Helps {
         time: DateTime.now(),
       );
     }
-  }
-
-  static int retornaIdHost({required String v}) {
-    if (v.contains('mangahost4') ||
-        v.contains('mangahosted') ||
-        v.contains('mangahostz')) return 1;
-    if (v.contains('unionmangas') || v.contains('unionleitor')) return 3;
-    if (v.contains('wqscan')) return 4;
-    if (v.contains('miradscanlator')) return 5;
-    if (v.contains('muitomanga')) return 2;
-    if (v.contains('easy-scan')) return 7;
-    if (v.contains('vulcannovel')) return 8;
-    if (v.contains('niadd') || v.contains('nineanime')) return 9;
-    if (v.contains('goldenmangas')) return 10;
-    return 6;
   }
 
   static List<String> convertStringToList(data) {
