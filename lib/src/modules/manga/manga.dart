@@ -21,10 +21,7 @@ class Manga {
         title = json['title'],
         uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['title']),
         href = json['href'],
-        idHost = json['idHost'] ??
-            Helps.retornaIdHost(
-              v: json['href'],
-            ),
+        idHost = json['idHost'] ?? 0,
         capa = json['capa'];
 
   Map<String, dynamic> toJson() {
