@@ -15,4 +15,12 @@ class Global {
   static String version = '';
   static String? jwt;
   static bool filterContentOver18 = false;
+  static Map<String, String> getHeader(int hostID) {
+    final headers = header;
+    if (7 == hostID) {
+      return header;
+    }
+    headers.removeWhere((key, value) => key == 'Authorization');
+    return headers;
+  }
 }
