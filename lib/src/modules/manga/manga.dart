@@ -16,7 +16,7 @@ class Manga {
     required this.uniqueid,
   });
 
-  Manga.fromJson(dynamic json)
+  Manga.fromJson(Map<String, dynamic> json)
       : id = json['\$id'],
         title = json['title'],
         uniqueid = Helps.convertUniqueid(json['uniqueid'] ?? json['title']),

@@ -1,17 +1,10 @@
 import 'dart:convert' as j;
+import 'package:manga_easy_sdk/src/modules/user/status_library_enum.dart';
+
 import '../../helpes.dart';
 import '../manga/manga.dart';
 
-enum StatusLibrary {
-  lendo('Lendo'),
-  dropado('Dropado'),
-  lido('Concluído'),
-  planejo('Em espera');
-
-  final String title;
-  const StatusLibrary(this.title);
-}
-
+@Deprecated("Use LibraryEntity v0.15.0 > v0.18.0")
 class LibraryModel {
   static String get collectionId => '617b5db178fd3';
   String? id;
