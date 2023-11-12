@@ -17,7 +17,7 @@ class Chapter {
     required this.date,
   });
 
-  Chapter.fromJson(dynamic json)
+  Chapter.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         title = json['title'],
         date = json['date'] ?? "",
