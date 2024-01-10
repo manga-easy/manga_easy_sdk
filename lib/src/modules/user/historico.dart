@@ -153,6 +153,8 @@ class Historico {
       chapterLidos: entity.chapterLidos,
       uniqueid: entity.uniqueid,
       isSync: entity.isSync,
+      currentChapter: entity.currentChapter,
+      capAtual: entity.capAtual,
     );
   }
 }
