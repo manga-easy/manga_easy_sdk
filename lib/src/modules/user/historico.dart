@@ -1,4 +1,6 @@
 import 'dart:convert' as j;
+import 'package:manga_easy_sdk/manga_easy_sdk.dart';
+
 import '../../helpes.dart';
 import '../manga/chapter.dart';
 import '../manga/manga.dart';
@@ -123,5 +125,36 @@ class Historico {
       return json['deletado'];
     }
     return false;
+  }
+
+  HistoryEntity toHistoryEntity() {
+    return HistoryEntity(
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      isDeleted: isDeleted,
+      idUser: idUser,
+      manga: manga,
+      chapterLidos: chapterLidos,
+      uniqueid: uniqueid,
+      isSync: isSync,
+      capAtual: capAtual,
+      currentChapter: currentChapter,
+      id: id,
+    );
+  }
+
+  factory Historico.fromHistoryEntity(HistoryEntity entity) {
+    return Historico(
+      createdAt: entity.createdAt,
+      updatedAt: entity.updatedAt,
+      isDeleted: entity.isDeleted,
+      idUser: entity.idUser,
+      manga: entity.manga,
+      chapterLidos: entity.chapterLidos,
+      uniqueid: entity.uniqueid,
+      isSync: entity.isSync,
+      currentChapter: entity.currentChapter,
+      capAtual: entity.capAtual,
+    );
   }
 }

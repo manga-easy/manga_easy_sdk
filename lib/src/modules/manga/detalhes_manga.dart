@@ -47,7 +47,7 @@ class DetalhesManga {
         artista = json['artista'],
         capitulos = json['capitulos'] != null
             ? json['capitulos']
-                .map<Chapter>((e) => Chapter.fromJson(e))
+                .map<Chapter>((e) => Chapter.fromJson(Map.from(e)))
                 .toList()
             : [];
 
@@ -67,5 +67,13 @@ class DetalhesManga {
     data['uniqueid'] = uniqueid;
     data['capitulos'] = capitulos.map((v) => v.toJson()).toList();
     return data;
+  }
+
+  Chapter? get firstChapter {
+    final chapters = capitulos.toList();
+    chapters.sort(
+      (a, b) => a.number.compareTo(b.number),
+    );
+    return chapters.firstOrNull;
   }
 }
